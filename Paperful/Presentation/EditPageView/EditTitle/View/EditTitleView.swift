@@ -1,23 +1,13 @@
-//
-//  EditPageView.swift
-//  Paperful
-//
-//  Created by Tony on 2022/04/22.
-//
-
 import SwiftUI
 
 struct EditTitleView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var editContentViewModel: EditContentViewModel
     
-    @State var enter_title = ""
-    @State var title = ""
-    @State var placeholder_title: String = "제목"
-    
-    @State var enter_content = ""
-    @State var content = ""
-    @State var placeholder_content: String = "당신의 소중한 생각을 기록해주세요."
+    @State var enter_title: String = ""
+    @State var title: String = ""
+    @State var placeholder_title: String = "제목을 입력해주세요."
     
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
@@ -54,36 +44,23 @@ struct EditTitleView: View {
                         .onChange(of: enter_title, perform: { _ in
                             self.title = self.enter_title
                         })
-                        .border(Color.red, width: 1)
                     Text(enter_title).opacity(0).padding(.all, 8)
                 }
-                Spacer()
             }
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                btnBack
-            }
-            ToolbarItem(placement: .principal) {
-                Text(title)
-                    .onChange(of: title, perform: { _ in
-                        title = self.title
-                    })
+                btnBack // 정말 뒤로 갈 건지 확인 모달? (작업중인 정보 다 잃어버린다고 경고 주기)
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Text("기록")
+                NavigationLink(
+                    destination: EditContentView(editTitleView: self, content: self.editContentViewModel.content)
+                ) {
+                    Text("다음")
+                }
             }
         }
         
     }
 }
-
-
-
-//
-//struct EditPageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditPageView()
-//    }
-//}

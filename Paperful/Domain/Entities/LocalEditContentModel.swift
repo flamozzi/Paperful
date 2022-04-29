@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct LocalEditContentModel: Identifiable {
+struct LocalEditContentModel: Hashable {
     var content: String
     
     init() {

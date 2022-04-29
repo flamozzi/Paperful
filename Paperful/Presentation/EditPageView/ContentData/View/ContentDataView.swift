@@ -5,24 +5,23 @@
 //  Created by Tony on 2022/04/27.
 //
 
-import SwiftUI
-
-struct ContentDataView: View {
-    
-    var editPageView: EditTitleView
-    var content = ""
-    
-    init(editPageView: EditTitleView) {
-        self.editPageView = editPageView
-        self.content = editPageView.content
-    }
-    
-    var body: some View {
-        Text(content)
-            .font(.body)
-            .padding(.horizontal, 16)
-    }
-}
+//import SwiftUI
+//
+//struct ContentDataView: View {
+//
+//    var editContentView: EditContentView
+//    var content = ""
+//
+//    init(editContentView: EditContentView) {
+//        self.editContentView = editContentView
+//        self.content = editContentView.con
+//    }
+//
+//    var body: some View {
+//        Text(content)
+//            .font(.body)
+//    }
+//}
 
 //struct EditContentView_Previews: PreviewProvider {
 //    static var previews: some View {

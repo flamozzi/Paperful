@@ -1,7 +1,10 @@
 import SwiftUI
 
 struct HomeView: View {
-
+    
+    @State private var tabBar: UITabBar! = nil
+    @EnvironmentObject var editContentViewModel: EditContentViewModel
+    
     var body: some View {
         
         NavigationView {
@@ -14,8 +17,11 @@ struct HomeView: View {
                 
                 VStack {
                     Divider()
-                        // .opacity(0)
+                    // .opacity(0)
                     ThumbnailListView()
+                }
+                .onAppear {
+                    editContentViewModel.content = ""
                 }
             }
             .navigationBarTitle("", displayMode: .inline)
@@ -26,22 +32,32 @@ struct HomeView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: -3) {
-                        Button(action: {
-                        }) {
+                        NavigationLink(
+                            destination: NotificationView()
+                                .onAppear { self.tabBar.isHidden = true }
+                        ) {
                             Image(systemName: "bell")
                                 .font(.system(size: 20))
                                 .foregroundColor(.black)
                         }
+                        .onAppear { self.tabBar.isHidden = false }
                         
-                        NavigationLink(destination: EditPageView()) {
+                        NavigationLink(
+                            destination: EditTitleView()
+                                .onAppear { self.tabBar.isHidden = true }
+                        ) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 23))
                                 .foregroundColor(.black)
                         }
+                        .onAppear { self.tabBar.isHidden = false }
                     }
                 }
             }
         }
+        .background(TabBarAccessor { tabbar in   // << here !!
+            self.tabBar = tabbar
+        })
     }
 }
 //

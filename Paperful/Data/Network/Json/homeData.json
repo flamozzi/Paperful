@@ -1,8 +1,133 @@
-//
-//  homeData.json
-//  Paperful
-//
-//  Created by Tony on 2022/04/14.
-//
-
-import Foundation
+[
+    {
+        "id": 16,
+        "create_at": "39분 전",
+        "update_at": "39분 전",
+        "intro": "새로운 인트로임",
+        "writer": {
+            "id": 2,
+            "nickname": "flamozzi",
+            "image": "null"
+        },
+        "comment_list": [],
+        "thumbnail": "http://172.16.161.134:8080/media/IMG_1226.JPG",
+        "title": "새로운 타이틀임어쩔티비저쩔냉장고진짜많이길어야된다고나집에가ㅣ고싶다 힘들어 ㅠㅠㅜㅜ",
+        "content": "새로운콘텐츠임",
+        "status": "O",
+        "tag": []
+    },
+    {
+        "id": 15,
+        "create_at": "3일 전",
+        "update_at": "3일 전",
+        "intro": "이것은 인트로입니다.",
+        "writer": {
+            "id": 1,
+            "nickname": "mainforce",
+            "image": "http://172.16.161.134:8080/media/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpeg"
+        },
+        "comment_list": [],
+        "thumbnail": "null",
+        "title": "얘는 타이틀입니다.",
+        "content": "컨텐츠는 없습니다.",
+        "status": "O",
+        "tag": []
+    },
+    {
+        "id": 14,
+        "create_at": "5일 전",
+        "update_at": "5일 전",
+        "intro": "test intro",
+        "writer": {
+            "id": 1,
+            "nickname": "mainforce",
+            "image": "http://172.16.161.134:8080/media/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpeg"
+        },
+        "comment_list": [],
+        "thumbnail": "http://172.16.161.134:8080/media/IMG_1226.JPG",
+        "title": "test title",
+        "content": "test_content",
+        "status": "O",
+        "tag": []
+    },
+    {
+        "id": 12,
+        "create_at": "5일 전",
+        "update_at": "20시간 전",
+        "intro": "test intro",
+        "writer": {
+            "id": 1,
+            "nickname": "mainforce",
+            "image": "http://172.16.161.134:8080/media/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpeg"
+        },
+        "comment_list": [],
+        "thumbnail": "http://172.16.161.134:8080/media/IMG_1226.JPG",
+        "title": "test title",
+        "content": "test_content",
+        "status": "O",
+        "tag": []
+    },
+    {
+        "id": 6,
+        "create_at": "2022.04.01 15:07",
+        "update_at": "2022.04.01 15:07",
+        "intro": "불륜은 한 사람의 세계를 무너뜨릴 수 있다. 관계에서 비롯되는 행복과 자신의 정체성을 전부 앗아갈 수 있다. 몹시…",
+        "writer": {
+            "id": 3,
+            "nickname": "따봉이최고야",
+            "image": "null"
+        },
+        "comment_list": [
+            {
+                "create_at": "6일 전",
+                "update_at": "6일 전",
+                "writer": {
+                    "id": 3,
+                    "nickname": "따봉이최고야",
+                    "image": "null"
+                },
+                "content": "testcontent",
+                "child_comment_list": []
+            }
+        ],
+        "thumbnail": "null",
+        "title": "우리가 사랑할 때",
+        "content": "불륜은 한 사람의 세계를 무너뜨릴 수 있다. 관계에서 비롯되는 행복과 자신의 정체성을 전부 앗아갈 수 있다. 몹시 치명적이지만 한편으로 너무나도 흔한 불륜. 늘 터부시되고 금지되지만 또 언제 어디서나 일어나는 불륜을 우리는 과연 어떻게 이해해야 할까.\r\n\r\n왜 사람들은 바람을 피울까? 상대의 부정은 왜 그토록 상처가 될까? 과연 불륜을 예방할 수 있을까? 동시에 한 명 이상을 사랑하는 것은 가능할까? 이 책의 저자이자 세계적인 심리치료사인 에스터 페렐은 지난 10년간 외도로 고민하는 수많은 사람과 상담하며 이 주제에 몰두했다.\r\n\r\n저자는 불륜이 오늘날의 사랑과 관계에 대해 우리에게 많은 것을 가르쳐준다고 말한다. 자신이 무엇을 기대하고 원하는지, 또 어떤 권리와 자격이 있다고 생각하는지를 드러낼 뿐 아니라, 개인과 문화가 사랑과 욕망을 대하는 태도를 보여준다고 말한다.\r\n\r\n금지된 사랑을 다각도로 살핌으로써 오늘날의 다양한 사랑과 관계를 들여다보는 솔직하고 유익하며 도발적인 책.",
+        "status": "O",
+        "tag": []
+    },
+    {
+        "id": 5,
+        "create_at": "2022.04.01 14:36",
+        "update_at": "2022.04.01 14:36",
+        "intro": "위스키의 성지 아일라를 가보신 적 있나요?",
+        "writer": {
+            "id": 1,
+            "nickname": "mainforce",
+            "image": "http://172.16.161.134:8080/media/%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpeg"
+        },
+        "comment_list": [],
+        "thumbnail": "null",
+        "title": "위스키 성지여행",
+        "content": "위스키의 성지 아일라를 가보신 적 있나요?",
+        "status": "O",
+        "tag": []
+    },
+    {
+        "id": 4,
+        "create_at": "2022.04.01 14:34",
+        "update_at": "2022.04.01 14:37",
+        "intro": "어부 flamozzi의 인생사를 담은 독백.\r\n여러분을 사색에 잠기게 할 한 남자의 이야기",
+        "writer": {
+            "id": 2,
+            "nickname": "flamozzi",
+            "image": "http://172.16.161.134:8080/media/IMG_1226.JPG"
+        },
+        "comment_list": [],
+        "thumbnail": "null",
+        "title": "어부의 독백",
+        "content": "한 잔은 떠나간 너를 위하여, 한 잔은 초라해진 나를 위하여, 또 한 잔은 미리 알고 정하신 하느님을 위하여",
+        "status": "O",
+        "tag": []
+    }
+]
