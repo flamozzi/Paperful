@@ -2,69 +2,86 @@ import SwiftUI
 import Foundation
 
 struct ThumbnailView: View {
-    
-    var thumbnailViewModel: ThumbnailViewModel
-    
-    init(homeModel: HomeModel){
-        self.thumbnailViewModel = ThumbnailViewModel(homeModel: homeModel)
-    }
-    
+
+    @ObservedObject var thumbnailViewModel: ThumbnailViewModel = .init()
+
     var body: some View {
-        
         ZStack {
-//            Color(red: 254/255, green: 255/255, blue: 250/255).edgesIgnoringSafeArea(.all)
             Color(red: 254/255, green: 252/255, blue: 245/255)
                 .edgesIgnoringSafeArea(.all)
-            
+
             ZStack {
                 VStack {
-                    Rectangle()
-                        .fill(Color(red: 254/255, green: 252/255, blue: 245/255))
-                    // background color = 254, 255, 250
-                        .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 350, maxHeight: .infinity, alignment: .center)
-                        .border(Color(red: 231/255, green: 228/255, blue: 222/255))
-                        .padding(10)
+                    if self.thumbnailViewModel.thumbnail == nil {
+                        Rectangle()
+                            .fill(Color(red: 254/255, green: 252/255, blue: 245/255))
+                        // background color = 254, 255, 250
+                            .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 200, maxHeight: .infinity, alignment: .center)
+                            .border(Color(red: 231/255, green: 228/255, blue: 222/255))
+                            .padding(10)
+                    }
+                    else {
+                        Rectangle()
+                            .fill(Color(red: 254/255, green: 252/255, blue: 245/255))
+                        // background color = 254, 255, 250
+                            .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 350, maxHeight: .infinity, alignment: .center)
+                            .border(Color(red: 231/255, green: 228/255, blue: 222/255))
+                            .padding(10)
+                    }
                 }
                 VStack (spacing: 16){
-                    //image
-                    //ImageView(withURL: homeContent.thumbnail)
                     VStack (spacing: 16){
                         //title
-                        Text(thumbnailViewModel.getTitle())
+                        Text(self.thumbnailViewModel.title)
                             .font(.title2)
                             .lineLimit(1)
                             .padding(.bottom, -8)
                         
-                        Text("────────────────────")
-                            .bold()
-                        
-                        
-                        Image(thumbnailViewModel.getImage())
-                            .resizable()
-                            .frame(minWidth: 0, idealWidth: 200, maxWidth: .infinity, minHeight: 0, idealHeight: 200, maxHeight: .infinity, alignment: .center)
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.horizontal, 48)
-                        
-                        HStack {
-                            Spacer()
-                            //writer nickname
-                            Text(thumbnailViewModel.getWriterNickname())
+                        // image가 nil이 아니면
+                        if self.thumbnailViewModel.thumbnail != nil {
+                            VStack {
+                                Text("────────────────────")
+                                    .bold()
+
+                                // image
+                                AsyncImage(url: URL(string: self.thumbnailViewModel.thumbnail!)) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                } placeholder: {
+                                    Image(self.thumbnailViewModel.thumbnail!)
+                                }
+                                .frame(minWidth: 0, idealWidth: 200, maxWidth: .infinity, minHeight: 0, idealHeight: 200, maxHeight: .infinity, alignment: .center)
+                                .padding(.horizontal, 48)
+
+
+                                HStack {
+                                    Spacer()
+                                    //writer nickname
+                                    Text(self.thumbnailViewModel.writerNickname)
+                                        .font(.subheadline)
+                                        .bold()
+                                        .lineLimit(1)
+                                }
+                                .padding(.horizontal, 16)
+                                .padding(.bottom, -24)
+
+                                Text("────────────────────")
+                                    .bold()
+                            }
+                        }
+                        // image가 nill 이면
+                        else {
+                            Text(self.thumbnailViewModel.writerNickname)
                                 .font(.subheadline)
                                 .bold()
                                 .lineLimit(1)
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.bottom, -24)
-                        
-                        Text("────────────────────")
-                            .bold()
                     }
-                        
-                    
-                    
+
                     VStack (spacing: 8){
-                        
-                        Text(thumbnailViewModel.getIntro())
+
+                        Text(self.thumbnailViewModel.intro)
                             .font(.subheadline)
                             .multilineTextAlignment(.center)
                             .lineLimit(2)
@@ -72,7 +89,6 @@ struct ThumbnailView: View {
                 }
                 .padding(32)
             }
-            
         }
     }
 }

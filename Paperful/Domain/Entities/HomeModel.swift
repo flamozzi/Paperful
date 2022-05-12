@@ -1,6 +1,10 @@
 import Foundation
 import SwiftUI
 
+struct Results: Codable {
+    var results: [HomeModel]
+}
+
 struct HomeModel: Codable, Identifiable {
     var id: Int = 0
     var title: String 
@@ -28,4 +32,5 @@ struct HomeModel: Codable, Identifiable {
         self.writer = .init()
         self.thumbnail = nil
     }
+    
 }
