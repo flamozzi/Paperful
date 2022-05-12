@@ -1,24 +1,26 @@
 import SwiftUI
+import SwiftUIPullToRefresh
+import Alamofire
 
 struct HomeView: View {
     
     @State private var tabBar: UITabBar! = nil
     @EnvironmentObject var editContentViewModel: EditContentViewModel
     
+    private var backgroundColor = Color(red: 254/255, green: 252/255, blue: 245/255)
+    // border color == Color(red: 231/255, green: 228/255, blue: 222/255)
+    
     var body: some View {
         
         NavigationView {
             ZStack {
-//                Color(red: 254/255, green: 255/255, blue: 250/255) //background color
-//                    .edgesIgnoringSafeArea(.all)
-                Color(red: 254/255, green: 252/255, blue: 245/255)
+                backgroundColor
                     .edgesIgnoringSafeArea(.all)
-                // border color == Color(red: 231/255, green: 228/255, blue: 222/255)
                 
                 VStack {
                     Divider()
                     // .opacity(0)
-                    ThumbnailListView()
+                    ThumbnailViewListView()
                 }
                 .onAppear {
                     editContentViewModel.content = ""

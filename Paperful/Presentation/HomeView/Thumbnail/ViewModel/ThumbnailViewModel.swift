@@ -1,89 +1,38 @@
 import SwiftUI
 import Foundation
 import Combine
+import Alamofire
 
-class ThumbnailViewModel: ObservableObject, Identifiable{
+class ThumbnailViewModel: ObservableObject {
+    @Published var homeModel: HomeModel = .init()
     
-    var homeModel: HomeModel
+    // MARK: - Thumbnail View에 뿌려줄 값들
     
-    init(homeModel: HomeModel) {
-        self.homeModel = homeModel
+    // thumbnail image
+    var thumbnail: String? {
+        return homeModel.thumbnail
     }
     
-    func getImage() -> String {
-        return "paperfulTestImage"
-    }
-    
-    func getTitle() -> String {
-        //        if homeModel != nil {
-        //            return homeModel.title
-        //        }
-        //        return ""
+    // title
+    var title: String {
         return homeModel.title
     }
     
-    func getWriterNickname() -> String {
-        //        if homeModel != nil {
-        //            return homeModel.writer.nickname
-        //        }
-        //        return ""
+    // writer nickname
+    var writerNickname: String {
         return homeModel.writer.nickname
     }
     
-    func getIntro() -> String {
-        //        if homeModel != nil {
-        //            return homeModel.intro
-        //        }
-        //        return ""
+    // intro
+    var intro: String {
         return homeModel.intro
     }
     
+    // MARK: - View로부터 새로운 값을 받아서 기존의 property 들의 값을 바꿈
+    func changeHomeModel(homeModel: HomeModel) {
+        self.homeModel.thumbnail = homeModel.thumbnail
+        self.homeModel.title = homeModel.title
+        self.homeModel.writer.nickname = homeModel.writer.nickname
+        self.homeModel.intro = homeModel.intro
+    }
 }
-
-//
-//}
-//
-//
-////import SwiftUI
-////import Combine
-////
-////struct TestView: View {
-////    @ObservedObject var vm: ViewModel = .init(usecase: <#T##UseCase#>)
-////
-////    var body: some View {
-////        Text("\(vm.textFromServer)")
-////    }
-////}
-////
-////extension TestView {
-////    class ViewModel: ObservableObject {
-////        var usecase: UseCase
-////        @Published private(set) var textFromServer: String = ""
-////
-////        init(usecase: UseCase) {
-////            self.usecase = usecase
-////        }
-////
-////        func fetch() {
-////
-////        }
-////    }
-////}
-////
-////
-////// dependency inversion
-////protocol UseCase {
-////    func fetchText() -> String
-////}
-////
-////struct RealUseCase: UseCase {
-////    func fetchText() -> String {
-////        URLSession~~~
-////    }
-////}
-////
-////struct MockUseCase: UseCase {
-////    func fetchText() -> String {
-////        "hello it's test"
-////    }
-////}
