@@ -13,7 +13,7 @@ struct ThumbnailViewListView: View {
     
     var body: some View {
         VStack {
-            RefreshableScrollView(showsIndicators: true, loadingViewBackgroundColor: .backgroundColor, onRefresh: { done in
+            RefreshableScrollView(showsIndicators: false, loadingViewBackgroundColor: .backgroundColor, onRefresh: { done in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.thumbnailViewListViewModel.reload()
                     print(self.thumbnailViewListViewModel.page)

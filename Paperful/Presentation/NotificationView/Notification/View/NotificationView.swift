@@ -1,24 +1,34 @@
-//
-//  NotificationView.swift
-//  Paperful
-//
-//  Created by Tony on 2022/04/22.
-//
-
 import SwiftUI
+import SwiftUIPullToRefresh
 
 struct NotificationView: View {
     
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @ObservedObject var notificationViewModel: NotificationViewModel = .init()
     
     var body: some View {
-        Text("Notification View!")
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action : {
-                            self.mode.wrappedValue.dismiss()
-                        }){
-                            Image(systemName: "arrow.left")
-                        })
+        ZStack {
+            Color.backgroundColor
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                HStack {
+                    Text("알림")
+                        .font(.title)
+                        .bold()
+                        .padding(.horizontal, 16)
+                    Spacer()
+                }
+                ScrollView {
+                    LazyVStack (alignment: .leading, spacing: 16){
+                        ForEach(0..<self.notificationViewModel.notificationList.count, id: \.self) { iterator in
+//                            Text("\(self.notificationViewModel.notificationList[iterator])")
+                            Text("\(self.notificationViewModel.notificationList[iterator])")
+                                .padding(.horizontal, 16)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
