@@ -7,23 +7,21 @@ struct ThumbnailView: View {
 
     var body: some View {
         ZStack {
-            Color(red: 254/255, green: 252/255, blue: 245/255)
+            Color.backgroundColor
                 .edgesIgnoringSafeArea(.all)
 
             ZStack {
                 VStack {
                     if self.thumbnailViewModel.thumbnail == nil {
                         Rectangle()
-                            .fill(Color(red: 254/255, green: 252/255, blue: 245/255))
-                        // background color = 254, 255, 250
+                            .fill(Color.backgroundColor)
                             .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 200, maxHeight: .infinity, alignment: .center)
                             .border(Color(red: 231/255, green: 228/255, blue: 222/255))
                             .padding(10)
                     }
                     else {
                         Rectangle()
-                            .fill(Color(red: 254/255, green: 252/255, blue: 245/255))
-                        // background color = 254, 255, 250
+                            .fill(Color.backgroundColor)
                             .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 350, maxHeight: .infinity, alignment: .center)
                             .border(Color(red: 231/255, green: 228/255, blue: 222/255))
                             .padding(10)

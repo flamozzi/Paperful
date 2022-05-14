@@ -22,7 +22,7 @@ struct EditTitleView: View {
     
     var body: some View {
         ZStack {
-            Color(red: 254/255, green: 252/255, blue: 245/255)
+            Color.backgroundColor
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
