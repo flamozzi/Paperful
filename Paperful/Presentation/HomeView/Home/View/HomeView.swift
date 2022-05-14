@@ -7,14 +7,13 @@ struct HomeView: View {
     @State private var tabBar: UITabBar! = nil
     @EnvironmentObject var editContentViewModel: EditContentViewModel
     
-    private var backgroundColor = Color(red: 254/255, green: 252/255, blue: 245/255)
     // border color == Color(red: 231/255, green: 228/255, blue: 222/255)
     
     var body: some View {
         
         NavigationView {
             ZStack {
-                backgroundColor
+                Color.backgroundColor
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {

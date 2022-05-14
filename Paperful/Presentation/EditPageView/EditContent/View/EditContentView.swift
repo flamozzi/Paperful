@@ -27,7 +27,7 @@ struct EditContentView: View {
     
     var body: some View {  // 화면 하단 부에 글자 byte나 맞춤법 검사? 미리보기? 등 기타 기능들 추가
         ZStack {
-            Color(red: 254/255, green: 252/255, blue: 245/255)
+            Color.backgroundColor
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
