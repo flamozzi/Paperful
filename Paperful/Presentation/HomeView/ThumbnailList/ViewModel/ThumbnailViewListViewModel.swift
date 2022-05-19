@@ -45,15 +45,14 @@ class ThumbnailViewListViewModel: ObservableObject {
     
     private func getHomeModels(start: Int, completion: @escaping (Bool, [HomeModel]) -> Void) {
         
-//        let url = "https://api.paperful.co.kr/posts"
         let url = "https://api.paperful.co.kr/posts?limit=10&start=\(start)"
         
-        AF.request(url).responseDecodable(of: Results.self) { response in
+        AF.request(url)
+            .responseDecodable(of: Results.self) { response in
             guard let result = response.value else { return }
             DispatchQueue.main.async {
                 completion(true, result.results)
             }
-            
         }
     }
 }

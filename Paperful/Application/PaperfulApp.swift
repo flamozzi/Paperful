@@ -2,11 +2,17 @@ import SwiftUI
 
 @main
 struct PaperfulApp: App {
-    @StateObject var editContentViewModel = EditContentViewModel()
+    @StateObject var globalData = GlobalData()
     
-    var body: some Scene {        
+    var body: some Scene {
+        // 원래 버전
         WindowGroup {
-            ContentView().environmentObject(editContentViewModel)
+            if self.globalData.token != "" {
+                ContentView().environmentObject(globalData)
+            }
+            else {
+                LoginView().environmentObject(globalData)
+            }
         }
     }
 }
