@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var editContentViewModel: EditContentViewModel
+    @EnvironmentObject var globalData: GlobalData
     
     var body: some View {
         
@@ -17,7 +17,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "house")
                 }
-            EditTitleView() // 임시
+            HomeView() // 임시
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }
@@ -38,6 +38,7 @@ struct ContentView: View {
             UITabBar.appearance().barTintColor = .backgroundColor
         }
         .accentColor(.black)
+        .onAppear(perform: UIApplication.shared.hideKeyboard)
     }
 }
 

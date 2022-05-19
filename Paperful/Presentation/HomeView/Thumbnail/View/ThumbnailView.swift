@@ -16,14 +16,14 @@ struct ThumbnailView: View {
                         Rectangle()
                             .fill(Color.backgroundColor)
                             .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 200, maxHeight: .infinity, alignment: .center)
-                            .border(Color(red: 231/255, green: 228/255, blue: 222/255))
+                            .border(Color.borderColor)
                             .padding(10)
                     }
                     else {
                         Rectangle()
                             .fill(Color.backgroundColor)
                             .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 350, maxHeight: .infinity, alignment: .center)
-                            .border(Color(red: 231/255, green: 228/255, blue: 222/255))
+                            .border(Color.borderColor)
                             .padding(10)
                     }
                 }
