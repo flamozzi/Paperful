@@ -29,7 +29,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "books.vertical")
                 }
-            HomeView()
+            MyPaperView()
                 .tabItem {
                     Image(systemName: "person")
                 }

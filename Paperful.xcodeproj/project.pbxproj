@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833AB443283546A6006C5078 /* MyPaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833AB442283546A6006C5078 /* MyPaperView.swift */; };
+		833AB44528354778006C5078 /* ListView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833AB44428354778006C5078 /* ListView1.swift */; };
+		833AB4492835485B006C5078 /* ListView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833AB4482835485B006C5078 /* ListView2.swift */; };
+		833AB44C28354885006C5078 /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833AB44B28354885006C5078 /* ConfigurationView.swift */; };
+		8359F880283561FA000CE9EA /* ListView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359F87F283561FA000CE9EA /* ListView3.swift */; };
+		8359F88428357314000CE9EA /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359F88328357314000CE9EA /* ConfigViewController.swift */; };
 		EA36C5132807FECE002369EE /* PaperfulApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA36C5122807FECE002369EE /* PaperfulApp.swift */; };
 		EA36C5152807FECE002369EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA36C5142807FECE002369EE /* ContentView.swift */; };
 		EA36C5172807FECF002369EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA36C5162807FECF002369EE /* Assets.xcassets */; };
@@ -31,6 +37,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		833AB442283546A6006C5078 /* MyPaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPaperView.swift; sourceTree = "<group>"; };
+		833AB44428354778006C5078 /* ListView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView1.swift; sourceTree = "<group>"; };
+		833AB4482835485B006C5078 /* ListView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView2.swift; sourceTree = "<group>"; };
+		833AB44B28354885006C5078 /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		8359F87F283561FA000CE9EA /* ListView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView3.swift; sourceTree = "<group>"; };
+		8359F88328357314000CE9EA /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		EA36C50F2807FECE002369EE /* Paperful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paperful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA36C5122807FECE002369EE /* PaperfulApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperfulApp.swift; sourceTree = "<group>"; };
 		EA36C5142807FECE002369EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +79,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		833AB43828354329006C5078 /* MyPaperView */ = {
+			isa = PBXGroup;
+			children = (
+				833AB43C28354366006C5078 /* Configuration */,
+				833AB43A28354349006C5078 /* MyPaper */,
+			);
+			path = MyPaperView;
+			sourceTree = "<group>";
+		};
+		833AB43A28354349006C5078 /* MyPaper */ = {
+			isa = PBXGroup;
+			children = (
+				833AB43B28354360006C5078 /* View */,
+			);
+			path = MyPaper;
+			sourceTree = "<group>";
+		};
+		833AB43B28354360006C5078 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				833AB442283546A6006C5078 /* MyPaperView.swift */,
+				833AB44428354778006C5078 /* ListView1.swift */,
+				833AB4482835485B006C5078 /* ListView2.swift */,
+				8359F87F283561FA000CE9EA /* ListView3.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		833AB43C28354366006C5078 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				833AB44A28354874006C5078 /* View */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		833AB44A28354874006C5078 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				833AB44B28354885006C5078 /* ConfigurationView.swift */,
+				8359F88328357314000CE9EA /* ConfigViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EA36C5062807FECE002369EE = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +208,7 @@
 		EA36C52528081401002369EE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				833AB43828354329006C5078 /* MyPaperView */,
 				EA36C52D2808151D002369EE /* ContetntView */,
 				EA36C53028081603002369EE /* HomeView */,
 				EAF32C752812BC44003F15FE /* EditPageView */,
@@ -492,18 +550,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8359F88428357314000CE9EA /* ConfigViewController.swift in Sources */,
+				833AB4492835485B006C5078 /* ListView2.swift in Sources */,
 				EAD032E7281A633300705F42 /* EditContentView.swift in Sources */,
 				EA7EBB4E28292CB2007B4981 /* request.swift in Sources */,
 				EAD032ED281AB1B900705F42 /* EditContentViewModel.swift in Sources */,
 				EA72AFE4282FDE7C00F5892B /* NotificationViewModel.swift in Sources */,
 				EA36C53D28081BBD002369EE /* HomeModel.swift in Sources */,
 				EAB3EFBC28113CFF007BF1B9 /* HomeView.swift in Sources */,
+				833AB44C28354885006C5078 /* ConfigurationView.swift in Sources */,
 				EAF32C812812C3D3003F15FE /* NotificationView.swift in Sources */,
 				EA36C5152807FECE002369EE /* ContentView.swift in Sources */,
 				EAFE25A9282A733E009F899F /* DataService.swift in Sources */,
+				833AB443283546A6006C5078 /* MyPaperView.swift in Sources */,
+				8359F880283561FA000CE9EA /* ListView3.swift in Sources */,
 				EA36C53B28081B5A002369EE /* ThumbnailView.swift in Sources */,
 				EAF32C7A2812BCD7003F15FE /* EditTitleView.swift in Sources */,
 				EAD032EB281AAF7B00705F42 /* LocalEditContentModel.swift in Sources */,
+				833AB44528354778006C5078 /* ListView1.swift in Sources */,
 				EAB3EFC028119E52007BF1B9 /* ThumbnailViewListView.swift in Sources */,
 				EA36C53F28081D09002369EE /* ThumbnailViewModel.swift in Sources */,
 				EA36C5132807FECE002369EE /* PaperfulApp.swift in Sources */,
@@ -639,7 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Paperful/Preview Content\"";
-				DEVELOPMENT_TEAM = WMGV8HBF44;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Paperful/Info.plist;
@@ -669,7 +733,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Paperful/Preview Content\"";
-				DEVELOPMENT_TEAM = WMGV8HBF44;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Paperful/Info.plist;
