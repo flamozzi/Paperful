@@ -4,21 +4,29 @@ import Mantis
 
 struct EditThumbnailView: View {
     
+    // MARK: - global Data
     @EnvironmentObject var globalData: GlobalData
+    
+    // MARK: - VM
     @ObservedObject var editThumbnailViewModel: EditThumbnailViewModel = .init()
     
+    // MARK: - enter_string and placeholder
     @State private var enter_intro: String = ""
     @State private var placeholder_intro: String = "소개글을 작성해주세요."
     
+    // MARK: - for implementing text on the image
     @State private var checkOverText: Bool = false
     
+    // MARK: - for Image Picker and Cropper
     @State private var image: UIImage? = .init()
     @State private var isShowing = false
     @State private var isCrop = false
     
+    // MARK: - 1:1 rec ratio
     @State private var cropShapeType: Mantis.CropShapeType = .rect
     @State private var presetFixedRatioType: Mantis.PresetFixedRatioType = .canUseMultiplePresetFixedRatio()
     
+    // MARK: - image change checker
     @State var checkChange: Bool = false
     
     var body: some View {
@@ -80,23 +88,6 @@ struct EditThumbnailView: View {
                                                         .ignoresSafeArea()
                                                 }
                                             }
-//                                            .sheet(isPresented: $isShowing) {
-//                                                // Pick an image from the photo library:
-//                                                ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-//
-//                                                //  If you wish to take a photo from camera instead:
-//                                                // ImagePicker(sourceType: .camera, selectedImage: self.$image)
-//                                            }
-                                        
-                                        
-//                                        if self.checkChange == false {
-//                                            Text("이곳을 클릭해서 사진을 추가해주세요.")
-//                                                .font(.subheadline)
-//                                                .foregroundColor(Color.gray)
-//                                                .frame(minWidth: 200, idealWidth: 200, maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity, alignment: .center)
-//                                                .border(Color.gray)
-//                                                .padding(.horizontal, 64)
-//                                        }
                                     }
                                     
                                     HStack {

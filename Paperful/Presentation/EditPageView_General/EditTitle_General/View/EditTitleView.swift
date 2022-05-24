@@ -59,7 +59,6 @@ struct EditTitleView_General: View {
                 }), secondaryButton: .cancel(Text("취소")))
             }
         }
-        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 btnBack // 정말 뒤로 갈 건지 물어봄 (작업중인 정보 다 잃어버린다고 경고 주기)

@@ -11,6 +11,7 @@ class LoginViewModel: ObservableObject {
         self.getLoginAPI(email: email, password: password) { (isSuccess, response) in
             if isSuccess {
                 globalData.token = response!
+                globalData.isChangeToken = true
             }
         }
     }

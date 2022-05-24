@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct EditGeneralModel: Codable {
     var title: String = ""
