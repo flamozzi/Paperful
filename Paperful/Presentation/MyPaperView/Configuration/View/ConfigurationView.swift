@@ -10,9 +10,10 @@ import PhotosUI
 
 struct ConfigurationView: View {
   
-    var ViewController = ConfigViewController()
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
     
-    var ProfileImgName:String = "paperfulTestImage"
     var nickName:String = "nickName"
     
     @State var showActionView = false
@@ -21,18 +22,23 @@ struct ConfigurationView: View {
         ActionSheet(title: Text("Select an action"), message: Text("선택"),  buttons: [
             .default(Text("카메라"), action: {
                 //TODO: struct -> UIPickerController
-                
+                self.sourceType = .camera
+                self.isImagePickerDisplay.toggle()
             }),
             .default(Text("앨범"), action: {
                 //TODO
-                
+                self.sourceType = .photoLibrary
+                self.isImagePickerDisplay.toggle()
             }),
             .cancel()
         ])
+        
     }
+        
     
     //var message:String = "introduce"
-    @State private var showGreeting = true
+    @State private var newComment = true
+    @State private var subscription = true
     @State private var text:String = "introduce"
 
     @State private var currentTab: Int = 0
@@ -43,11 +49,28 @@ struct ConfigurationView: View {
             Color(red: 254/255, green: 255/255, blue: 250/255) //background color
                     .edgesIgnoringSafeArea(.all)
             VStack{
-                UserMainImage
-                    .padding(.top, 10)
-                    .onTapGesture(perform: { self.showActionView.toggle()}).actionSheet(isPresented: $showActionView, content: {
+                VStack {
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                            .frame(width: 200, height: 200)
+                    } else {
+                        Image(systemName: "person")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                            .frame(width: 200, height: 200)
+                    }
+                }
+                .padding(.top, 16)
+                .onTapGesture(perform: { self.showActionView.toggle()}).actionSheet(isPresented: $showActionView, content: {
                         self.actionSheet
                     })
+                .sheet(isPresented: self.$isImagePickerDisplay) {
+                    SUImagePicker(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                    }
             
                 UserInfo.padding(10)
                 AlertInfo
@@ -67,7 +90,7 @@ struct ConfigurationView: View {
                 HStack(alignment: .center) {
                     Text("댓글 알림").font(.subheadline).padding()
                     Spacer()
-                    Toggle(isOn: $showGreeting) {
+                    Toggle(isOn: $newComment) {
                             
                     }
                     .padding()
@@ -76,7 +99,7 @@ struct ConfigurationView: View {
                 HStack(alignment: .center) {
                     Text("구독한 글 알림").font(.subheadline).padding()
                     Spacer()
-                    Toggle(isOn: $showGreeting) {
+                    Toggle(isOn: $subscription) {
                             
                     }
                     .padding()
@@ -89,10 +112,7 @@ struct ConfigurationView: View {
         
 private extension ConfigurationView {
     
-    var UserMainImage: some View {
-        CircleImage(image: Image(ProfileImgName))
-            .offset(y: 30)
-    }
+    
         
     var UserInfo: some View {
         VStack(alignment: .center) {
