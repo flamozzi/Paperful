@@ -8,6 +8,8 @@ class ThumbnailViewListViewModel: ObservableObject {
     
     @Published var page = 0
     
+    //MARK: - 전체 글 목록 조회
+    
     // 뷰 최상단에서 당겨서 새로고침 (새로운 10개의 썸네일만 받아서 render)
     func reload() {
         self.page = 0

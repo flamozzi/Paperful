@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct PrewviewView_General: View {
+struct DetailView_General: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var globalData: GlobalData
     
-    @StateObject var previewViewModel: PreviewViewModel_General = .init()
+    @ObservedObject var detailViewModel: DetailViewModel_General = .init()
     
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
@@ -13,8 +13,8 @@ struct PrewviewView_General: View {
     }
     }
     
-    init() {
-        UITextView.appearance().backgroundColor = .clear
+    init(postID: Int) {
+        detailViewModel.loadPost(postID: postID)
     }
     
     var body: some View {
@@ -27,29 +27,20 @@ struct PrewviewView_General: View {
                     Divider()
                     
                     HStack {
-                        Text("여러분이 작성한 글은 다른 유저에게 다음과 같이 보여집니다.")
-                            .font(.subheadline)
-                            .foregroundColor(Color.gray)
-                            .padding(.horizontal, 16)
-                    }
-                    
-                    Divider()
-                    
-                    HStack {
-                        Text(globalData.editContent.title.trimmingCharacters(in: .whitespaces))
+                        Text(self.detailViewModel.postModel.title.trimmingCharacters(in: .whitespaces))
                             .font(.title)
                             .padding(.horizontal, 16)
                         Spacer()
                     }
                     
                     HStack {
-                        Text(globalData.currentUserProfile.nickname)
+                        Text(self.detailViewModel.postModel.writer.nickname)
                             .font(.subheadline)
                             .bold()
                         
                         Text("|")
                         
-                        Text(previewViewModel.getDate())
+                        Text(self.detailViewModel.postModel.create_at)
                             .font(.subheadline)
                             .foregroundColor(Color.gray)
                         
@@ -58,7 +49,7 @@ struct PrewviewView_General: View {
                     .padding(.horizontal, 16)
                     
                     HStack {
-                        Text(globalData.editContent.content)
+                        Text(self.detailViewModel.postModel.content)
                             .font(.body)
                             .padding(.horizontal, 16)
                         Spacer()
@@ -74,23 +65,17 @@ struct PrewviewView_General: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 btnBack
             }
-            ToolbarItem(placement: .principal) {
-                Text("미리보기")
-            }
             ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink(
-                    destination: EditThumbnailView_General()
-                ) {
-                    Text("다음")
-                }
+                Image(systemName: "person")
+                    .font(.system(size: 23))
+                    .foregroundColor(.black)
             }
         }
     }
 }
 
-
-//struct PreviewView_Previews: PreviewProvider {
+//struct DetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PrewviewView_General()
+//        DetailView_General()
 //    }
 //}

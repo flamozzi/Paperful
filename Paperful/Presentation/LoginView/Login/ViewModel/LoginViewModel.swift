@@ -4,7 +4,7 @@ import Alamofire
 
 
 class LoginViewModel: ObservableObject {
-    @Published var loginTokenModel : LoginTokenModel = .init()
+//    @Published var loginTokenModel : LoginTokenModel = .init()
     
     // request login api
     func requestLogin(email: String, password: String, globalData: GlobalData) {

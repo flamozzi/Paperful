@@ -2,6 +2,7 @@ import Foundation
 
 struct UserProfileListModel: Codable {
     var results: [UserProfileModel]
+    var next: String = ""
 }
 
 struct UserProfileModel: Codable {

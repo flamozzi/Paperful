@@ -32,7 +32,7 @@ class UserProfileViewModel: ObservableObject {
     }
     
     // MARK: - 새로운 값을 받아서 기존의 property 값을 바꿈
-    func changeUserProfileImage(userProfileModel: UserProfileModel) {
+    func changeUserProfile(userProfileModel: UserProfileModel) {
         self.userProfileModel.id = userProfileModel.id
         self.userProfileModel.image = userProfileModel.image
         self.userProfileModel.intro = userProfileModel.intro

@@ -5,6 +5,7 @@ import UIKit
 
 struct ThumbnailViewListView: View {
     
+    @EnvironmentObject var globalData: GlobalData
     @ObservedObject var thumbnailViewListViewModel: ThumbnailViewListViewModel = .init()
     
     init() {
@@ -21,12 +22,18 @@ struct ThumbnailViewListView: View {
             }) {
                 LazyVStack (spacing: -10) {
                     ForEach(0..<self.thumbnailViewListViewModel.thumbnailViewList.count, id: \.self) { iterator in
-                        self.thumbnailViewListViewModel.thumbnailViewList[iterator]
-                            .onAppear() {
-                                if iterator % 10 == 9 {
-                                    self.thumbnailViewListViewModel.loadNextPage(page: self.thumbnailViewListViewModel.page)
-                                }
+                        if self.thumbnailViewListViewModel.thumbnailViewList[iterator].thumbnailViewModel.object_type == "general" {
+                            NavigationLink(
+                                destination: DetailView_General(postID: self.thumbnailViewListViewModel.thumbnailViewList[iterator].thumbnailViewModel.id)
+                            ) {
+                                self.thumbnailViewListViewModel.thumbnailViewList[iterator]
+                                    .onAppear() {
+                                        if iterator % 10 == 9 {
+                                            self.thumbnailViewListViewModel.loadNextPage(page: self.thumbnailViewListViewModel.page)
+                                        }
+                                    }
                             }
+                        }
                     }
                 }
             }
