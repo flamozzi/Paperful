@@ -10,6 +10,7 @@ struct HomeModel: Codable, Identifiable {
     var intro: String
     var content: String
     var writer: Writer
+    var object_type: String
     
     var thumbnail: String?
     
@@ -24,12 +25,13 @@ struct HomeModel: Codable, Identifiable {
     }
     
     init() {
-        self.id = 0;
+        self.id = 0
         self.title = "default title"
         self.intro = "default intro"
         self.content = "default content"
         self.writer = .init()
         self.thumbnail = nil
+        self.object_type = "general"
     }
     
 }

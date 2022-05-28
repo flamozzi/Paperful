@@ -4,6 +4,7 @@ import Alamofire
 
 struct HomeView: View {
     
+    @EnvironmentObject var globalData: GlobalData
     @State private var tabBar: UITabBar! = nil
     
     var body: some View {
@@ -14,6 +15,15 @@ struct HomeView: View {
                 
                 VStack {
                     Divider()
+                    
+                    if globalData.isGuest == true {
+                        Text("로그인하여 모든 서비스를 이용하세요.")
+                            .foregroundColor(Color.gray)
+                            .padding(.horizontal, 16)
+                        
+                        Divider()
+                    }
+                    
                     ThumbnailViewListView()
                 }
             }

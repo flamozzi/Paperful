@@ -93,7 +93,7 @@ struct EditThumbnailView: View {
                                     HStack {
                                         Spacer()
                                         //writer nickname
-                                        Text(self.editThumbnailViewModel.writerNickname)
+                                        Text(globalData.currentUserProfile.nickname)
                                             .font(.subheadline)
                                             .bold()
                                             .lineLimit(1)

@@ -180,6 +180,8 @@ struct SignUpView: View {
                     .foregroundColor(Color.black)
             }
         }
+        // navigation bar 공백 없애기 위해 inline style의 공백 명시
+        .navigationBarTitle("", displayMode: .inline)
     }
 
     func checkCondition() {

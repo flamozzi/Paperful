@@ -20,7 +20,7 @@ struct UserProfileSelectView: View {
     }
     
     init(globalData: GlobalData) {
-        self.userProfileSelectViewModel.loadUserProfileImageList(globalData: globalData)
+        self.userProfileSelectViewModel.loadUserProfileList(globalData: globalData)
     }
     
     var body: some View {
@@ -30,30 +30,35 @@ struct UserProfileSelectView: View {
                 
                 VStack (spacing: 32){
                     
-                    Text("신규 프로필 생성")
+                    Text("프로필 선택")
                         .font(.title)
                         .bold()
                         .padding(.horizontal, 16)
                     
                     ScrollView(.horizontal) {
                         HStack{
-                            ForEach(0..<self.userProfileSelectViewModel.userProfileImageViewList.count, id: \.self) { iterator in
+                            ForEach(0..<self.userProfileSelectViewModel.userProfileViewList.count, id: \.self) { iterator in
                                 // ContentView로 이동
-                                self.userProfileSelectViewModel.userProfileImageViewList[iterator]
+                                self.userProfileSelectViewModel.userProfileViewList[iterator]
                                     .onTapGesture {
                                         // 선택한 유저 프로필로 globalData의 current 유저 정보로 매핑
-                                        globalData.currentUserProfile.id = self.userProfileSelectViewModel.userProfileImageViewList[iterator].userProfileViewModel.userProfileID
+                                        globalData.currentUserProfile.id = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileID
                                         
-                                        globalData.currentUserProfile.image = self.userProfileSelectViewModel.userProfileImageViewList[iterator].userProfileViewModel.userProfileImage
+                                        globalData.currentUserProfile.image = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileImage
                                         
-                                        globalData.currentUserProfile.intro = self.userProfileSelectViewModel.userProfileImageViewList[iterator].userProfileViewModel.userProfileIntro
+                                        globalData.currentUserProfile.intro = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileIntro
                                         
-                                        globalData.currentUserProfile.nickname = self.userProfileSelectViewModel.userProfileImageViewList[iterator].userProfileViewModel.userProfileNickname
+                                        globalData.currentUserProfile.nickname = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNickname
                                         
-                                        globalData.currentUserProfile.numberOfSubscribers = self.userProfileSelectViewModel.userProfileImageViewList[iterator].userProfileViewModel.userProfileNumberOfSubscribers
+                                        globalData.currentUserProfile.numberOfSubscribers = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNumberOfSubscribers
                                         
                                         globalData.isMember = true
                                     }
+//                                    .onAppear() {
+//                                        if iterator % 10 == 9 {
+//                                            self.userProfileSelectViewModel.userProfileViewList
+//                                        }
+//                                    }
                             }
                             
                             // AddUserProfileView로 이동
