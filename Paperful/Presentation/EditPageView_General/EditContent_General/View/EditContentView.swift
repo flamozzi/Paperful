@@ -41,7 +41,7 @@ struct EditContentView_General: View {
                             enter_content = globalData.editContent.content
                         }
                         .onDisappear {
-                            globalData.editContent.content = enter_content
+                            globalData.editContent.content = self.enter_content
                         }
                         .padding()
                         .font(.body)

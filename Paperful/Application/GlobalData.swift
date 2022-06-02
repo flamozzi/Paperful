@@ -46,29 +46,4 @@ class GlobalData: ObservableObject {
         self.editContent.intro = ""
         self.editContent.writerNickname = ""
     }
-    
-    //MARK: - HomeView의 Thumbnail -> DeatilView로 갈 때의 글 id
-    @Published var currentPostID: Int = 0
-    
-//    //MARK: - 현재 조회하고 있는 글 정보
-//    @Published var currentPost: PostModel = .init()
-//
-//    func resetCurrentPost() {
-//        self.currentPost.object_type = ""
-//        self.currentPost.id = 0
-//        self.currentPost.title = ""
-//        self.currentPost.thumbnail = ""
-//        self.currentPost.intro = ""
-//        self.currentPost.writer = .init()
-//        self.currentPost.content = ""
-//        self.currentPost.create_at = ""
-//        self.currentPost.update_at = ""
-//        self.currentPost.status = ""
-//        self.currentPost.num_comments = 0
-//        self.currentPost.hits = 0
-//        self.currentPost.attentions = 0
-//        self.currentPost.href = ""
-//        self.currentPost.diary_day = ""
-//        self.currentPost.weather = ""
-//    }
 }

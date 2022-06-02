@@ -6,7 +6,7 @@ struct EditTitleView_General: View {
     @EnvironmentObject var globalData: GlobalData
     
     @State private var enter_title: String = ""
-    @State private var title: String = ""
+//    @State private var title: String = ""
     @State private var placeholder_title: String = "제목을 입력해주세요."
     
     @State private var showingAlert = false
