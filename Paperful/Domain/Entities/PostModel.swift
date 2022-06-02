@@ -15,7 +15,6 @@ struct PostModel: Codable {
     var num_comments: Int = 0
     var hits: Int = 0
     var attentions: Int = 0
-    var href: String?
     var diary_day: String?
     var weather: String?
 }
