@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		EA04D86F283B827E00B7AED2 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D86E283B827E00B7AED2 /* SignUpModel.swift */; };
 		EA04D877283B8C7D00B7AED2 /* UserProfileSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D876283B8C7D00B7AED2 /* UserProfileSelectView.swift */; };
-		EA04D87C283B91D600B7AED2 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D87B283B91D600B7AED2 /* UserProfileView.swift */; };
-		EA04D87F283B91F700B7AED2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D87E283B91F700B7AED2 /* UserProfileViewModel.swift */; };
+		EA04D87C283B91D600B7AED2 /* UserProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D87B283B91D600B7AED2 /* UserProfileImageView.swift */; };
+		EA04D87F283B91F700B7AED2 /* UserProfileImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D87E283B91F700B7AED2 /* UserProfileImageViewModel.swift */; };
 		EA04D881283B923B00B7AED2 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D880283B923B00B7AED2 /* UserProfileModel.swift */; };
 		EA04D883283B965700B7AED2 /* UserProfileSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D882283B965700B7AED2 /* UserProfileSelectViewModel.swift */; };
 		EA04D885283CAD9F00B7AED2 /* CurrentUserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA04D884283CAD9F00B7AED2 /* CurrentUserProfileModel.swift */; };
@@ -57,6 +57,11 @@
 		EAB3EFC028119E52007BF1B9 /* ThumbnailViewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3EFBF28119E52007BF1B9 /* ThumbnailViewListView.swift */; };
 		EAD032E7281A633300705F42 /* EditContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD032E6281A633300705F42 /* EditContentView.swift */; };
 		EAD032ED281AB1B900705F42 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD032EC281AB1B900705F42 /* GlobalData.swift */; };
+		EAD8CCE5284A828A0061A710 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8CCE4284A828A0061A710 /* ProfileView.swift */; };
+		EAD8CCE7284BB8580061A710 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8CCE6284BB8580061A710 /* ProfileViewModel.swift */; };
+		EAD8CCF3284DA1A40061A710 /* ProfileModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8CCF2284DA1A40061A710 /* ProfileModelView.swift */; };
+		EAD8CCF6284DA5830061A710 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = EAD8CCF5284DA5830061A710 /* PartialSheet */; };
+		EAD8CCFB284DB2D50061A710 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8CCFA284DB2D50061A710 /* NotificationSettingView.swift */; };
 		EAF32C7A2812BCD7003F15FE /* EditTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF32C792812BCD7003F15FE /* EditTitleView.swift */; };
 		EAF32C812812C3D3003F15FE /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF32C802812C3D3003F15FE /* NotificationView.swift */; };
 		EAFE25A9282A733E009F899F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE25A8282A733E009F899F /* DataService.swift */; };
@@ -66,8 +71,8 @@
 /* Begin PBXFileReference section */
 		EA04D86E283B827E00B7AED2 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		EA04D876283B8C7D00B7AED2 /* UserProfileSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSelectView.swift; sourceTree = "<group>"; };
-		EA04D87B283B91D600B7AED2 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
-		EA04D87E283B91F700B7AED2 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		EA04D87B283B91D600B7AED2 /* UserProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageView.swift; sourceTree = "<group>"; };
+		EA04D87E283B91F700B7AED2 /* UserProfileImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileImageViewModel.swift; sourceTree = "<group>"; };
 		EA04D880283B923B00B7AED2 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		EA04D882283B965700B7AED2 /* UserProfileSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSelectViewModel.swift; sourceTree = "<group>"; };
 		EA04D884283CAD9F00B7AED2 /* CurrentUserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileModel.swift; sourceTree = "<group>"; };
@@ -112,6 +117,10 @@
 		EAB3EFBF28119E52007BF1B9 /* ThumbnailViewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailViewListView.swift; sourceTree = "<group>"; };
 		EAD032E6281A633300705F42 /* EditContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentView.swift; sourceTree = "<group>"; };
 		EAD032EC281AB1B900705F42 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		EAD8CCE4284A828A0061A710 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EAD8CCE6284BB8580061A710 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		EAD8CCF2284DA1A40061A710 /* ProfileModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModelView.swift; sourceTree = "<group>"; };
+		EAD8CCFA284DB2D50061A710 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
 		EAE46703281BF78200276FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EAF32C792812BCD7003F15FE /* EditTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleView.swift; sourceTree = "<group>"; };
 		EAF32C802812C3D3003F15FE /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -126,6 +135,7 @@
 			files = (
 				EA72B0212836775F00F5892B /* Mantis in Frameworks */,
 				EA7EBB48282923D4007B4981 /* SwiftUIPullToRefresh in Frameworks */,
+				EAD8CCF6284DA5830061A710 /* PartialSheet in Frameworks */,
 				EA7EBB4B28292980007B4981 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,7 +189,7 @@
 		EA04D879283B91C300B7AED2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EA04D87E283B91F700B7AED2 /* UserProfileViewModel.swift */,
+				EA04D87E283B91F700B7AED2 /* UserProfileImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -187,7 +197,7 @@
 		EA04D87A283B91C800B7AED2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EA04D87B283B91D600B7AED2 /* UserProfileView.swift */,
+				EA04D87B283B91D600B7AED2 /* UserProfileImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,6 +339,7 @@
 				EA72AFEF28321F2000F5892B /* SelectFormView */,
 				EAF32C752812BC44003F15FE /* EditPageView_General */,
 				EAF32C7C2812C35F003F15FE /* NotificationView */,
+				EAD8CCE0284A49DF0061A710 /* ProfileView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -739,6 +750,89 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		EAD8CCE0284A49DF0061A710 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCE1284A82710061A710 /* Profile */,
+				EAD8CCEF284DA1460061A710 /* ProfileModal */,
+				EAD8CCF7284DB0840061A710 /* NotificationSetting */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		EAD8CCE1284A82710061A710 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCE3284A827D0061A710 /* View */,
+				EAD8CCE2284A82780061A710 /* ViewModel */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		EAD8CCE2284A82780061A710 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCE6284BB8580061A710 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAD8CCE3284A827D0061A710 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCE4284A828A0061A710 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAD8CCEF284DA1460061A710 /* ProfileModal */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCF1284DA15F0061A710 /* View */,
+				EAD8CCF0284DA1590061A710 /* ViewModel */,
+			);
+			path = ProfileModal;
+			sourceTree = "<group>";
+		};
+		EAD8CCF0284DA1590061A710 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAD8CCF1284DA15F0061A710 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCF2284DA1A40061A710 /* ProfileModelView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAD8CCF7284DB0840061A710 /* NotificationSetting */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCF9284DB0CE0061A710 /* View */,
+				EAD8CCF8284DB0C90061A710 /* ViewModel */,
+			);
+			path = NotificationSetting;
+			sourceTree = "<group>";
+		};
+		EAD8CCF8284DB0C90061A710 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAD8CCF9284DB0CE0061A710 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAD8CCFA284DB2D50061A710 /* NotificationSettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EAF32C752812BC44003F15FE /* EditPageView_General */ = {
 			isa = PBXGroup;
 			children = (
@@ -836,6 +930,7 @@
 				EA7EBB47282923D4007B4981 /* SwiftUIPullToRefresh */,
 				EA7EBB4A28292980007B4981 /* Alamofire */,
 				EA72B0202836775F00F5892B /* Mantis */,
+				EAD8CCF5284DA5830061A710 /* PartialSheet */,
 			);
 			productName = Paperful;
 			productReference = EA36C50F2807FECE002369EE /* Paperful.app */;
@@ -869,6 +964,7 @@
 				EA7EBB46282923D4007B4981 /* XCRemoteSwiftPackageReference "swiftui-pull-to-refresh" */,
 				EA7EBB4928292980007B4981 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EA72B01F2836775F00F5892B /* XCRemoteSwiftPackageReference "Mantis" */,
+				EAD8CCF4284DA5820061A710 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = EA36C5102807FECE002369EE /* Products */;
 			projectDirPath = "";
@@ -897,7 +993,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAD032E7281A633300705F42 /* EditContentView.swift in Sources */,
-				EA04D87F283B91F700B7AED2 /* UserProfileViewModel.swift in Sources */,
+				EA04D87F283B91F700B7AED2 /* UserProfileImageViewModel.swift in Sources */,
 				EA7EBB4E28292CB2007B4981 /* request.swift in Sources */,
 				EA72B0102834E9C400F5892B /* EditThumbnailImageView_General.swift in Sources */,
 				EA04D885283CAD9F00B7AED2 /* CurrentUserProfileModel.swift in Sources */,
@@ -911,8 +1007,10 @@
 				EAF32C812812C3D3003F15FE /* NotificationView.swift in Sources */,
 				EA36C5152807FECE002369EE /* ContentView.swift in Sources */,
 				EA72B0252836C25800F5892B /* hideKeyboardExtention.swift in Sources */,
+				EAD8CCE5284A828A0061A710 /* ProfileView.swift in Sources */,
 				EAFE25A9282A733E009F899F /* DataService.swift in Sources */,
 				EA36C53B28081B5A002369EE /* ThumbnailView.swift in Sources */,
+				EAD8CCF3284DA1A40061A710 /* ProfileModelView.swift in Sources */,
 				EA72B0122835F8AF00F5892B /* EditThumbnailViewModel_General.swift in Sources */,
 				EA72B0192835FEE000F5892B /* EditThumbnailViewModel.swift in Sources */,
 				EAF32C7A2812BCD7003F15FE /* EditTitleView.swift in Sources */,
@@ -922,9 +1020,10 @@
 				EA72B00728329BD300F5892B /* PrewviewView_General.swift in Sources */,
 				EA7A58B6284260BF00E6648A /* PostModel.swift in Sources */,
 				EA36C53F28081D09002369EE /* ThumbnailViewModel.swift in Sources */,
-				EA04D87C283B91D600B7AED2 /* UserProfileView.swift in Sources */,
+				EA04D87C283B91D600B7AED2 /* UserProfileImageView.swift in Sources */,
 				EA72B02D28377B9800F5892B /* SignUpViewModel.swift in Sources */,
 				EA04D877283B8C7D00B7AED2 /* UserProfileSelectView.swift in Sources */,
+				EAD8CCE7284BB8580061A710 /* ProfileViewModel.swift in Sources */,
 				EA7A58B12842546700E6648A /* DetailView_General.swift in Sources */,
 				EA72AFFD28323A2100F5892B /* FormModel.swift in Sources */,
 				EA72AFEE2831014900F5892B /* LoginTokenModel.swift in Sources */,
@@ -932,6 +1031,7 @@
 				EA04D883283B965700B7AED2 /* UserProfileSelectViewModel.swift in Sources */,
 				EA36C5132807FECE002369EE /* PaperfulApp.swift in Sources */,
 				EA72B0012832517600F5892B /* EditGeneralModel.swift in Sources */,
+				EAD8CCFB284DB2D50061A710 /* NotificationSettingView.swift in Sources */,
 				EA04D86F283B827E00B7AED2 /* SignUpModel.swift in Sources */,
 				EA04D892283CF64200B7AED2 /* AddUserProfileModel.swift in Sources */,
 				EA72AFF92832217500F5892B /* FormView.swift in Sources */,
@@ -1175,6 +1275,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EAD8CCF4284DA5820061A710 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1192,6 +1300,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EA7EBB4928292980007B4981 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		EAD8CCF5284DA5830061A710 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAD8CCF4284DA5820061A710 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

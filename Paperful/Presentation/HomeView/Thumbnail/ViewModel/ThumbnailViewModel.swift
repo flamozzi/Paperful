@@ -46,4 +46,13 @@ class ThumbnailViewModel: ObservableObject {
         self.homeModel.intro = homeModel.intro
         self.homeModel.id = homeModel.id
     }
+    
+    // MARK: - View로부터 새로운 값을 받아서 기존의 property 들의 값을 바꿈
+    func changeHomeModel(post: PostModel) {
+        self.homeModel.thumbnail = post.thumbnail
+        self.homeModel.title = post.title
+        self.homeModel.writer.nickname = post.writer.nickname
+        self.homeModel.intro = post.intro
+        self.homeModel.id = post.id
+    }
 }

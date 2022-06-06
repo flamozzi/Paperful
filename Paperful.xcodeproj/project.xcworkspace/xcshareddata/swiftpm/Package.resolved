@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "partialsheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AndreaMiotto/PartialSheet.git",
+      "state" : {
+        "revision" : "318f18bfabd2b2ddf785babd2e53bd593c00a254",
+        "version" : "3.1.0"
+      }
+    },
+    {
       "identity" : "swiftui-pull-to-refresh",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/globulus/swiftui-pull-to-refresh",

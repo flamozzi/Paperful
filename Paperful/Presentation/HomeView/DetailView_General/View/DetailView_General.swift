@@ -2,7 +2,6 @@ import SwiftUI
 
 struct DetailView_General: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//    @EnvironmentObject var globalData: GlobalData
     
     @ObservedObject var detailViewModel: DetailViewModel_General = .init()
     

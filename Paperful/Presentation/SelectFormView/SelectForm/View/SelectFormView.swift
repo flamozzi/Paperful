@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SelectFormView: View {
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var globalData: GlobalData
     
@@ -69,7 +70,6 @@ struct SelectFormView: View {
                 }
                 .onAppear {
                     globalData.resetEditContent()
-                    
                 }
             }
             
@@ -78,7 +78,7 @@ struct SelectFormView: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                btnBack // 정말 뒤로 갈 건지 확인 모달? (작업중인 정보 다 잃어버린다고 경고 주기)
+                btnBack
             }
         }
         

@@ -54,11 +54,11 @@ struct UserProfileSelectView: View {
                                         
                                         globalData.isMember = true
                                     }
-//                                    .onAppear() {
-//                                        if iterator % 10 == 9 {
-//                                            self.userProfileSelectViewModel.userProfileViewList
-//                                        }
-//                                    }
+                                    .onAppear() {
+                                        if iterator % 10 == 9 {
+                                            self.userProfileSelectViewModel.loadNextProfileList(globalData: globalData)
+                                        }
+                                    }
                             }
                             
                             // AddUserProfileView로 이동
@@ -86,6 +86,9 @@ struct UserProfileSelectView: View {
                         .foregroundColor(Color.black)
                 }
             }
+        }
+        .onAppear {
+            self.userProfileSelectViewModel.settingUserProfileListModel(globalData: globalData)
         }
     }
 }
