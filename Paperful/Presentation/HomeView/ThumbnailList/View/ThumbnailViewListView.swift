@@ -7,6 +7,7 @@ struct ThumbnailViewListView: View {
     
     @EnvironmentObject var globalData: GlobalData
     @ObservedObject var thumbnailViewListViewModel: ThumbnailViewListViewModel = .init()
+    @State private var tabBar: UITabBar! = nil
     
     init() {
         self.thumbnailViewListViewModel.reload()
@@ -25,6 +26,7 @@ struct ThumbnailViewListView: View {
                         if self.thumbnailViewListViewModel.thumbnailViewList[iterator].thumbnailViewModel.object_type == "general" {
                             NavigationLink(
                                 destination: DetailView_General(postID: self.thumbnailViewListViewModel.thumbnailViewList[iterator].thumbnailViewModel.id)
+                                    .onAppear { self.tabBar.isHidden = true }
                             ) {
                                 self.thumbnailViewListViewModel.thumbnailViewList[iterator]
                                     .onAppear() {
@@ -38,6 +40,9 @@ struct ThumbnailViewListView: View {
                 }
             }
         }
+        .background(TabBarAccessor { tabbar in
+            self.tabBar = tabbar
+        })
     }
 }
 

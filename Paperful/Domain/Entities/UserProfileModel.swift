@@ -2,7 +2,12 @@ import Foundation
 
 struct UserProfileListModel: Codable {
     var results: [UserProfileModel]
-    var next: String = ""
+    var next: String?
+    
+    init() {
+        self.results = []
+        self.next = nil
+    }
 }
 
 struct UserProfileModel: Codable {

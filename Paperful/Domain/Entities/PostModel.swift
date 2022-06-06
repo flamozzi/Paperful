@@ -1,5 +1,25 @@
 import Foundation
 
+struct PostListModel: Codable {
+    var results: [PostModel]
+    var next: String?
+    var previous: String?
+    var size: Int
+    var start: Int
+    var limit: Int
+    var total: Int
+    
+    init() {
+        self.results = []
+        self.next = nil
+        self.previous = nil
+        self.size = 0
+        self.start = 0
+        self.limit = 0
+        self.total = 0
+    }
+}
+
 struct PostModel: Codable {
     var object_type: String = ""
     var id: Int = 0
