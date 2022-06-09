@@ -42,7 +42,6 @@
 		EA72B0122835F8AF00F5892B /* EditThumbnailViewModel_General.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA72B0112835F8AE00F5892B /* EditThumbnailViewModel_General.swift */; };
 		EA72B0162835FD9C00F5892B /* EditThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA72B0152835FD9C00F5892B /* EditThumbnailView.swift */; };
 		EA72B0192835FEE000F5892B /* EditThumbnailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA72B0182835FEDF00F5892B /* EditThumbnailViewModel.swift */; };
-		EA72B0212836775F00F5892B /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = EA72B0202836775F00F5892B /* Mantis */; };
 		EA72B023283678B700F5892B /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA72B022283678B700F5892B /* ImageCropper.swift */; };
 		EA72B0252836C25800F5892B /* hideKeyboardExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA72B0242836C25700F5892B /* hideKeyboardExtention.swift */; };
 		EA72B02B2837331000F5892B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA72B02A2837331000F5892B /* SignUpView.swift */; };
@@ -50,8 +49,6 @@
 		EA7A58B12842546700E6648A /* DetailView_General.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A58B02842546700E6648A /* DetailView_General.swift */; };
 		EA7A58B4284255E800E6648A /* DetailViewModel_General.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A58B3284255E800E6648A /* DetailViewModel_General.swift */; };
 		EA7A58B6284260BF00E6648A /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A58B5284260BF00E6648A /* PostModel.swift */; };
-		EA7EBB48282923D4007B4981 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = EA7EBB47282923D4007B4981 /* SwiftUIPullToRefresh */; };
-		EA7EBB4B28292980007B4981 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EA7EBB4A28292980007B4981 /* Alamofire */; };
 		EA7EBB4E28292CB2007B4981 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7EBB4D28292CB2007B4981 /* request.swift */; };
 		EAB3EFBC28113CFF007BF1B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3EFBB28113CFF007BF1B9 /* HomeView.swift */; };
 		EAB3EFC028119E52007BF1B9 /* ThumbnailViewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3EFBF28119E52007BF1B9 /* ThumbnailViewListView.swift */; };
@@ -124,15 +121,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA72B0212836775F00F5892B /* Mantis in Frameworks */,
-				EA7EBB48282923D4007B4981 /* SwiftUIPullToRefresh in Frameworks */,
-				EA7EBB4B28292980007B4981 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D37A3482848B8F5009CB689 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA04D870283B8AAE00B7AED2 /* UserProfileSelectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +231,7 @@
 			children = (
 				EA36C5112807FECE002369EE /* Paperful */,
 				EA36C5102807FECE002369EE /* Products */,
+				1D37A3482848B8F5009CB689 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -833,9 +835,6 @@
 			);
 			name = Paperful;
 			packageProductDependencies = (
-				EA7EBB47282923D4007B4981 /* SwiftUIPullToRefresh */,
-				EA7EBB4A28292980007B4981 /* Alamofire */,
-				EA72B0202836775F00F5892B /* Mantis */,
 			);
 			productName = Paperful;
 			productReference = EA36C50F2807FECE002369EE /* Paperful.app */;
@@ -866,9 +865,6 @@
 			);
 			mainGroup = EA36C5062807FECE002369EE;
 			packageReferences = (
-				EA7EBB46282923D4007B4981 /* XCRemoteSwiftPackageReference "swiftui-pull-to-refresh" */,
-				EA7EBB4928292980007B4981 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				EA72B01F2836775F00F5892B /* XCRemoteSwiftPackageReference "Mantis" */,
 			);
 			productRefGroup = EA36C5102807FECE002369EE /* Products */;
 			projectDirPath = "";
@@ -1149,51 +1145,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		EA72B01F2836775F00F5892B /* XCRemoteSwiftPackageReference "Mantis" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/guoyingtao/Mantis.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		EA7EBB46282923D4007B4981 /* XCRemoteSwiftPackageReference "swiftui-pull-to-refresh" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/globulus/swiftui-pull-to-refresh";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		EA7EBB4928292980007B4981 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		EA72B0202836775F00F5892B /* Mantis */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EA72B01F2836775F00F5892B /* XCRemoteSwiftPackageReference "Mantis" */;
-			productName = Mantis;
-		};
-		EA7EBB47282923D4007B4981 /* SwiftUIPullToRefresh */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EA7EBB46282923D4007B4981 /* XCRemoteSwiftPackageReference "swiftui-pull-to-refresh" */;
-			productName = SwiftUIPullToRefresh;
-		};
-		EA7EBB4A28292980007B4981 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EA7EBB4928292980007B4981 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EA36C5072807FECE002369EE /* Project object */;
 }
