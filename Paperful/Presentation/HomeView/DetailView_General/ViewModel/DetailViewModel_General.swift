@@ -51,7 +51,6 @@ class DetailViewModel_General: ObservableObject {
     }
     
     //MARK: - Detail View 관련
-    
     func loadPost(postID: Int) {
         self.getPostModel(postID: postID) { (isSuccess, response) in
             if isSuccess {
@@ -66,10 +65,16 @@ class DetailViewModel_General: ObservableObject {
         
         AF.request(url)
             .responseDecodable(of: PostModel.self) { response in
-                guard let result = response.value else { return }
-                DispatchQueue.main.async {
+                switch response.result {
+                case .success(_):
+                    guard let result = response.value else { return }
                     completion(true, result)
+                case let .failure(error):
+                    print(error)
                 }
+//                DispatchQueue.main.async {
+//                    completion(true, result)
+//                }
             }
     }
 }

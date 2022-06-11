@@ -1,27 +1,11 @@
-//
-//  ProfileModelView.swift
-//  Paperful
-//
-//  Created by Tony on 2022/06/06.
-//
-
 import SwiftUI
 
-struct ProfileModelView: View {
+struct ProfileModalView: View {
     @Environment(\.presentationMode) var presentation
+    @EnvironmentObject var globalData: GlobalData
     
     var body: some View {
         VStack(spacing: 16){
-            
-//            NavigationLink(
-//                destination: SelectFormView()
-//                    .onAppear { self.tabBar.isHidden = true }
-//            ) {
-//                Image(systemName: "pencil")
-//                    .font(.system(size: 23))
-//                    .foregroundColor(.black)
-//            }
-//            .onAppear { self.tabBar.isHidden = false }
             
             VStack {
                 HStack {
@@ -43,6 +27,7 @@ struct ProfileModelView: View {
                 Divider()
             }
             
+            //MARK: - 알림 설정
             VStack {
                 HStack {
                     Image(systemName: "bell")
@@ -62,6 +47,9 @@ struct ProfileModelView: View {
                 }
                 Divider()
             }
+            //                .onTapGesture {
+            //                    globalData.profileModalController = 1
+            //                }
             
             VStack {
                 Text("로그아웃")

@@ -21,6 +21,7 @@ struct UserProfileSelectView: View {
     
     init(globalData: GlobalData) {
         self.userProfileSelectViewModel.loadUserProfileList(globalData: globalData)
+        self.userProfileSelectViewModel.settingUserProfileListModel(globalData: globalData)
     }
     
     var body: some View {
@@ -86,9 +87,6 @@ struct UserProfileSelectView: View {
                         .foregroundColor(Color.black)
                 }
             }
-        }
-        .onAppear {
-            self.userProfileSelectViewModel.settingUserProfileListModel(globalData: globalData)
         }
     }
 }
