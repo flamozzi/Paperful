@@ -28,7 +28,6 @@ struct EditThumbnailView_General: View {
                 }
                 
                 Divider()
-                // 폼에 맞게 수정
                 
                 EditThumbnailView().environmentObject(globalData)
                 
@@ -48,6 +47,12 @@ struct EditThumbnailView_General: View {
                     destination: PrewviewView_General()
                 ) {
                     Text("완료")
+                        .onTapGesture {
+                            // 공개여부는 알파 버전에서는 무조건 공개 하는 것으로 일단 설정 (추후 비공개 및 공개 범위 설정 기능 추가)
+                            self.editThumbnailViewModel.requestAddPost(object_type: "general", status: "O", userProfileID: globalData.currentUserProfile.id, title: globalData.editContent.title, content: globalData.editContent.content, image: globalData.editContent.thumbnailData, intro: globalData.editContent.intro, globalData: globalData)
+                            
+                            globalData.goToContentView = true
+                        }
                 }
             }
         }

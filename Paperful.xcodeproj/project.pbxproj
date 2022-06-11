@@ -62,7 +62,6 @@
 		EAD8CCF3284DA1A40061A710 /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8CCF2284DA1A40061A710 /* ProfileModalView.swift */; };
 		EAD8CCF6284DA5830061A710 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = EAD8CCF5284DA5830061A710 /* PartialSheet */; };
 		EAD8CCFB284DB2D50061A710 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8CCFA284DB2D50061A710 /* NotificationSettingView.swift */; };
-		EAD8CD04285374260061A710 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8CD03285374260061A710 /* test.swift */; };
 		EAF32C7A2812BCD7003F15FE /* EditTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF32C792812BCD7003F15FE /* EditTitleView.swift */; };
 		EAF32C812812C3D3003F15FE /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF32C802812C3D3003F15FE /* NotificationView.swift */; };
 		EAFE25A9282A733E009F899F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE25A8282A733E009F899F /* DataService.swift */; };
@@ -122,7 +121,6 @@
 		EAD8CCE6284BB8580061A710 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EAD8CCF2284DA1A40061A710 /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
 		EAD8CCFA284DB2D50061A710 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
-		EAD8CD03285374260061A710 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		EAE46703281BF78200276FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EAF32C792812BCD7003F15FE /* EditTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTitleView.swift; sourceTree = "<group>"; };
 		EAF32C802812C3D3003F15FE /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -852,7 +850,6 @@
 			isa = PBXGroup;
 			children = (
 				EAF32C792812BCD7003F15FE /* EditTitleView.swift */,
-				EAD8CD03285374260061A710 /* test.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1036,7 +1033,6 @@
 				EA72AFFF28323C8000F5892B /* SelectFormViewModel.swift in Sources */,
 				EA04D881283B923B00B7AED2 /* UserProfileModel.swift in Sources */,
 				EA04D890283CF37100B7AED2 /* AddUserProfileViewModel.swift in Sources */,
-				EAD8CD04285374260061A710 /* test.swift in Sources */,
 				EA72B02B2837331000F5892B /* SignUpView.swift in Sources */,
 				EAFE25AC282D2060009F899F /* ThumbnailViewListViewModel.swift in Sources */,
 				EA72AFEC2830333A00F5892B /* LoginViewModel.swift in Sources */,

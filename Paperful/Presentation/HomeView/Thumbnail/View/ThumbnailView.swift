@@ -45,8 +45,8 @@ struct ThumbnailView: View {
                             } placeholder: {
                                 Image(self.thumbnailViewModel.thumbnail!)
                             }
-                            .frame(minWidth: 0, idealWidth: 200, maxWidth: .infinity, minHeight: 0, idealHeight: 200, maxHeight: .infinity, alignment: .center)
-//                            .padding(.horizontal, 48)
+                            .frame(minWidth: 0, idealWidth: 320, maxWidth: .infinity, minHeight: 0, idealHeight: 180, maxHeight: .infinity, alignment: .center)
+                            .padding(.vertical, 8)
 
 
                             HStack {

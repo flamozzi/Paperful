@@ -33,7 +33,7 @@ class GlobalData: ObservableObject {
         self.currentUserProfile.image = nil
         self.currentUserProfile.intro = ""
         self.currentUserProfile.nickname = ""
-        self.currentUserProfile.numberOfSubscribers = 0
+        self.currentUserProfile.num_subscribers = 0
     }
     
     //MARK: - 글쓰기에서 가지고 있는 정보들
@@ -46,4 +46,6 @@ class GlobalData: ObservableObject {
         self.editContent.intro = ""
         self.editContent.writerNickname = ""
     }
+    
+    @Published var goToContentView: Bool = false
 }

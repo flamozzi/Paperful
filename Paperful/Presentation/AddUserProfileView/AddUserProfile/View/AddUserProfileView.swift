@@ -179,6 +179,13 @@ struct AddUserProfileView: View {
                             .foregroundColor(Color.black)
                             .onTapGesture {
                                 self.addUserProfileViewModel.postNewUserProfile(nickname: self.enter_nickname, image: self.image?.jpegData(compressionQuality: 1), intro: self.enter_intro, globalData: globalData)
+                                
+                                globalData.currentUserProfile.image = self.image?.toJpegString(compressionQuality: 1)
+                                globalData.currentUserProfile.intro = self.enter_intro
+                                globalData.currentUserProfile.nickname = self.enter_nickname
+                                globalData.currentUserProfile.num_subscribers = 0
+                                
+                                globalData.isMember = true
                             }
                     }
                 }
@@ -197,5 +204,17 @@ struct AddUserProfileView: View {
 struct AddUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
         AddUserProfileView()
+    }
+}
+
+extension UIImage {
+    func toPngString() -> String? {
+        let data = self.pngData()
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
+    }
+    
+    func toJpegString(compressionQuality cq: CGFloat) -> String? {
+        let data = self.jpegData(compressionQuality: cq)
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
     }
 }

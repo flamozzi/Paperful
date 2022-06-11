@@ -52,20 +52,20 @@ struct SelectFormView: View {
                                         self.selectFormViewModel.formViewList[iterator]
                                     }
                                 }
-                                //                            else if self.selectFormViewModel.formViewList[iterator].formViewModel.id == 2 {
-                                //                                NavigationLink(
-                                //                                    destination: EditTitleView_General() // 바꿔야함
-                                //                                ) {
-                                //                                    self.selectFormViewModel.formViewList[iterator]
-                                //                                }
-                                //                            }
-                                //                            else if self.selectFormViewModel.formViewList[iterator].formViewModel.id == 3 {
-                                //                                NavigationLink(
-                                //                                    destination: EditTitleView_General() // 바꿔야함
-                                //                                ) {
-                                //                                    self.selectFormViewModel.formViewList[iterator]
-                                //                                }
-                                //                            }
+                                else if self.selectFormViewModel.formViewList[iterator].formViewModel.id == 2 {
+                                    NavigationLink(
+                                        destination: EditTitleView_General() // 바꿔야함
+                                    ) {
+                                        self.selectFormViewModel.formViewList[iterator]
+                                    }
+                                }
+                                else if self.selectFormViewModel.formViewList[iterator].formViewModel.id == 3 {
+                                    NavigationLink(
+                                        destination: EditTitleView_General() // 바꿔야함
+                                    ) {
+                                        self.selectFormViewModel.formViewList[iterator]
+                                    }
+                                }
                             }
                         }
                     }
@@ -73,11 +73,13 @@ struct SelectFormView: View {
                         globalData.resetEditContent()
                     }
                 }
+                .navigationBarTitleDisplayMode(.inline)
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     btnBack
+                        .foregroundColor(Color.black)
                 }
             }
         }

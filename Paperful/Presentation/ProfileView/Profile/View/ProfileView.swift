@@ -51,7 +51,7 @@ struct ProfileView: View {
                                         .font(.title2)
                                     
                                     VStack {
-                                        Text("\(globalData.currentUserProfile.numberOfSubscribers)")
+                                        Text("\(globalData.currentUserProfile.num_subscribers)")
                                             .font(.subheadline)
                                         Text("구독자")
                                             .font(.subheadline)
@@ -143,6 +143,7 @@ struct ProfileView: View {
                 }
             }
             .onAppear {
+                self.profileViewModel.requestCurrentUserProfileModel(UserID: globalData.currentUserProfile.id, globalData: globalData)
                 self.profileViewModel.requestPostListModel(UserID: globalData.currentUserProfile.id)
                 self.profileViewModel.requestPostList(UserID: globalData.currentUserProfile.id)
             }

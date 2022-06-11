@@ -36,6 +36,7 @@ struct ContentView: View {
         }
         .onAppear() {
             UITabBar.appearance().barTintColor = .backgroundColor
+            globalData.goToContentView = false
         }
         .accentColor(.black)
         .onAppear(perform: UIApplication.shared.hideKeyboard)
