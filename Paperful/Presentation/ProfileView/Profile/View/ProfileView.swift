@@ -12,6 +12,7 @@ struct ProfileView: View {
     var body: some View {
         
         NavigationView {
+            
             ZStack {
                 Color.backgroundColor.edgesIgnoringSafeArea(.all)
                 
@@ -19,14 +20,9 @@ struct ProfileView: View {
                     Rectangle()
                         .frame(height: 0)
                     
-                    //MARK: - 유저의 게시글
-                    RefreshableScrollView(showsIndicators: false, loadingViewBackgroundColor: .backgroundColor, onRefresh: { done in
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            self.profileViewModel.requestPostList(UserID: globalData.currentUserProfile.id)
-                            done()
-                        }
-                    }) {
-                        VStack {
+                    List {
+                        HStack {
+                            Spacer()
                             VStack(spacing: 8) {
                                 // image
                                 AsyncImage(url: URL(string: globalData.currentUserProfile.image!)) { image in
@@ -66,36 +62,59 @@ struct ProfileView: View {
                                 Text(globalData.currentUserProfile.intro)
                                     .font(.subheadline)
                                     .bold()
-                            }
-                        
-                            if self.profileViewModel.postList.total == 0 {
-                                Text("아직 작성한 글이 없습니다.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color.gray)
-                                    .padding(.vertical, 40)
-                            }
-                            
-                            else {
-                                LazyVStack (spacing: -10) {
-                                    ForEach(0..<self.profileViewModel.thumbnailViewList.count, id: \.self) { iterator in
-                                        if self.profileViewModel.thumbnailViewList[iterator].thumbnailViewModel.object_type == "general" {
-                                            NavigationLink(
-                                                destination: DetailView_General(postID: self.profileViewModel.thumbnailViewList[iterator].thumbnailViewModel.id)
-                                                    .onAppear { self.tabBar.isHidden = true }
-                                            ) {
-                                                self.profileViewModel.thumbnailViewList[iterator]
-                                                    .onAppear() {
-                                                        if iterator % 10 == 9 {
-                                                            self.profileViewModel.requestNextPostList(UserID: globalData.currentUserProfile.id)
-                                                        }
-                                                    }
-                                            }
-                                        }
-                                    }
+                                
+                                if self.profileViewModel.postList.total == 0 {
+                                    Text("아직 작성한 글이 없습니다.")
+                                        .font(.subheadline)
+                                        .foregroundColor(Color.gray)
+                                        .padding(.vertical, 40)
                                 }
                             }
+                            Spacer()
                         }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.backgroundColor)
+                        
+                        if self.profileViewModel.postList.total != 0 {
+                            ForEach(0..<self.profileViewModel.thumbnailViewList.count, id: \.self) { iterator in
+                                //MARK: - general form
+                                if self.profileViewModel.thumbnailViewList[iterator].thumbnailViewModel.object_type == "general" {
+                                    ZStack {
+                                        self.profileViewModel.thumbnailViewList[iterator]
+                                            .onAppear() {
+                                                if iterator % 10 == 9 {
+                                                    self.profileViewModel.requestNextPostList(UserID: globalData.currentUserProfile.id)
+                                                }
+                                            }
+                                        
+                                        NavigationLink(
+                                            destination: DetailView_General(postID: self.profileViewModel.thumbnailViewList[iterator].thumbnailViewModel.id)
+                                                .onAppear { self.tabBar.isHidden = true }
+                                        ) {
+                                            EmptyView()
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+                                        .opacity(0)
+                                    }
+                                    .listRowSeparator(.hidden)
+                                }
+                                
+                                //MARK: - 일기? 추가해야함
+                                
+                                //MARK: - 시? 추가해야함
+                                
+                            }
+                            .listRowBackground(Color.backgroundColor)
+                        }
+                        
                     }
+                    .listStyle(PlainListStyle())
+                    .refreshable {
+                        self.profileViewModel.requestPostListModel(UserID: globalData.currentUserProfile.id)
+                        self.profileViewModel.requestPostList(UserID: globalData.currentUserProfile.id)
+                    }
+                    
+                    
                 }
             }
             .navigationBarTitle("", displayMode: .inline)
@@ -108,8 +127,8 @@ struct ProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
                         // 다른 사람 프로필 뷰
-//                        Text("구독")
-//                        Text("후원")
+                        //                        Text("구독")
+                        //                        Text("후원")
                         
                         Button(action: {
                             self.showModal = true
@@ -118,7 +137,7 @@ struct ProfileView: View {
                                 .imageScale(.large)
                         }
                         .partialSheet(isPresented: self.$showModal) {
-                            ProfileModelView()
+                            ProfileModalView()
                         }
                     }
                 }
@@ -139,3 +158,6 @@ struct ProfileView: View {
 //        ProfileView()
 //    }
 //}
+
+
+

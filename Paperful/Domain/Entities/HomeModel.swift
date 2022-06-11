@@ -2,6 +2,12 @@ import Foundation
 
 struct Results: Codable {
     var results: [HomeModel]
+    var next: String?
+    
+    init() {
+        self.results = []
+        self.next = nil
+    }
 }
 
 struct HomeModel: Codable, Identifiable {

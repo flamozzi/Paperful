@@ -7,14 +7,17 @@ class UserProfileSelectViewModel: ObservableObject {
     @Published var userProfileViewList: [UserProfileView] = []
     @Published var userProfileList: UserProfileListModel = .init()
     
+    let url: String? = "https://api.paperful.co.kr/userprofiles"
+    
     func loadUserProfileList(globalData: GlobalData) {
-        self.getUserProfileList(globalData: globalData, url: nil) { (isSuccess, userProfileModelList) in
+        self.getUserProfileList(globalData: globalData, url: self.url) { (isSuccess, userProfileModelList) in
             if isSuccess {
                 for userProfileModel in userProfileModelList.results {
                     let userProfileView: UserProfileView = .init()
                     userProfileView.userProfileViewModel.changeUserProfile(userProfileModel: userProfileModel)
                     self.userProfileViewList.append(userProfileView)
                 }
+                self.userProfileList.next = userProfileModelList.next
             }
         }
     }

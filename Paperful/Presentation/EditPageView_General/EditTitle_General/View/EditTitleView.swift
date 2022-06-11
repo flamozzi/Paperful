@@ -1,34 +1,34 @@
 import SwiftUI
 
 struct EditTitleView_General: View {
-    
+
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var globalData: GlobalData
-    
+
     @State private var enter_title: String = ""
     @State private var placeholder_title: String = "제목을 입력해주세요."
-    
+
     @State private var showingAlert = false
-    
+
     var btnBack : some View { Button(action: {
         showingAlert = true // 경고창 띄움
     }) {
         Text("뒤로")
     }
     }
-    
+
     init() {
         UITextView.appearance().backgroundColor = .clear
     }
-    
+
     var body: some View {
         ZStack {
             Color.backgroundColor
                 .edgesIgnoringSafeArea(.all)
-            
+
             VStack {
                 Divider()
-                
+
                 // Title Text Editor
                 ZStack {
                     // placeholder
@@ -40,9 +40,9 @@ struct EditTitleView_General: View {
                             .padding()
                     }
                     TextEditor(text: $enter_title)
-                        .padding()
                         .font(.title2)
                         .opacity(self.enter_title.isEmpty ? 0.25 : 1)
+                        .padding()
                         .disableAutocorrection(true)
                         .onChange(of: enter_title, perform: { _ in
                             globalData.editContent.title = self.enter_title
@@ -62,7 +62,7 @@ struct EditTitleView_General: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 btnBack // 정말 뒤로 갈 건지 물어봄 (작업중인 정보 다 잃어버린다고 경고 주기)
-                
+
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 if globalData.editContent.title != "" && globalData.editContent.title.trimmingCharacters(in: .whitespaces) != "" {
@@ -76,3 +76,5 @@ struct EditTitleView_General: View {
         }
     }
 }
+
+
