@@ -53,4 +53,32 @@ class ProfileViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    //MARK: - User Profile Model load
+    
+    func requestCurrentUserProfileModel(UserID: Int, globalData: GlobalData) {
+        self.getCurrentUserProfileModel(UserID: UserID) { (isSuccess, result) in
+            if isSuccess {
+                globalData.currentUserProfile.id = result.id
+                globalData.currentUserProfile.nickname = result.nickname
+                globalData.currentUserProfile.image = result.image
+                globalData.currentUserProfile.intro = result.intro
+                globalData.currentUserProfile.num_subscribers = result.num_subscribers
+            }
+        }
+    }
+    
+    private func getCurrentUserProfileModel(UserID: Int, completion: @escaping (Bool, CurrentUserProfileModel) -> Void) {
+        
+        let url = "https://api.paperful.co.kr/userprofiles/\(UserID)"
+        
+        AF.request(url)
+            .responseDecodable(of: CurrentUserProfileModel.self) { response in
+            guard let result = response.value else { return }
+            DispatchQueue.main.async {
+                completion(true, result)
+            }
+        }
+    }
 }

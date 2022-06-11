@@ -34,4 +34,6 @@ class EditThumbnailViewModel: ObservableObject {
         self.homeModel.writer.nickname = homeModel.writer.nickname
         self.homeModel.intro = homeModel.intro
     }
+    
+    
 }

@@ -4,54 +4,42 @@ import Alamofire
 
 
 class EditThumbnailViewModel_General: ObservableObject {
-    @Published var thumbnailView: ThumbnailView = .init()
-    
-    var homeModel: HomeModel = .init()
-    
-    func setThumbnail(title: String, thumbnail: String) {
-        self.setHomeModel(title: title, thumbnail: thumbnail)
-        self.thumbnailView.thumbnailViewModel.changeHomeModel(homeModel: self.homeModel)
-    }
-    
-    func setHomeModel(title: String, thumbnail: String) {
-        self.homeModel.title = title
-        self.homeModel.thumbnail = thumbnail
-    }
-    
-    // request login api
-    func requestLogin(email: String, password: String, globalData: GlobalData) {
-        self.postToServer(email: email, password: password) { (isSuccess, response) in
+    func requestAddPost(object_type: String, status: String, userProfileID: Int, title: String, content: String, image: Data?, intro: String?, globalData: GlobalData) {
+        self.addPost(object_type: object_type, status: status, userProfileID: userProfileID, title: title, content: content, image: image, intro: intro, globalData: globalData) { (isSuccess, id) in
             if isSuccess {
-                globalData.token = response!
+                // 왜 success가 아닌데 잘 되는거지????
             }
         }
     }
     
-    // getLoginToken
-    private func postToServer(email: String, password: String, completion: @escaping (Bool, String?) -> Void) {
+    private func addPost(object_type: String, status: String, userProfileID: Int, title: String, content: String, image: Data?, intro: String?, globalData: GlobalData, completion: @escaping (Bool, Int) -> Void) {
         
-        let url = "https://api.paperful.co.kr/auth"
+        let url = "https://api.paperful.co.kr/userprofiles/\(userProfileID)/posts"
         
-        let login = Login(email: email, password: password)
+        let headers: HTTPHeaders = [
+            "Content-Type": "multipart/form-data",
+            "Authorization": "Token \(globalData.token)"
+        ]
         
-        AF.request(url,
-                   method: .post,
-                   parameters: login,
-                   encoder: JSONParameterEncoder.default)
-        .validate(statusCode: 200..<300)
-        .responseDecodable(of: LoginTokenModel.self) { response in
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(Data(object_type.utf8), withName: "object_type")
+            multipartFormData.append(Data(status.utf8), withName: "status")
+            multipartFormData.append(Data(title.utf8), withName: "title")
+            multipartFormData.append(Data(content.utf8), withName: "content")
+            multipartFormData.append(Data(intro!.utf8), withName: "intro")
+            if let thumbnail = image {
+                multipartFormData.append(thumbnail, withName: "thumbnail", fileName: "thumbnailFileName.jpeg", mimeType: "image/jpeg")
+            }
+        }, to: url, headers: headers)
+        .responseDecodable(of: PostModel.self) { response in
+            debugPrint(response)
             switch response.result {
             case .success(_):
                 guard let result = response.value else { return }
-                completion(true, result.token)
+                completion(true, result.id)
             case let .failure(error):
                 print(error)
             }
         }
-    }
-    
-    struct Login: Encodable {
-        let email: String
-        let password: String
     }
 }

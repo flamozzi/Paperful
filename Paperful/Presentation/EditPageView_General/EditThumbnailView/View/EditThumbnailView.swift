@@ -42,42 +42,40 @@ struct EditThumbnailView: View {
                                 .fill(Color.backgroundColor)
                                 .frame(minWidth: 0, idealWidth: 350, maxWidth: .infinity, minHeight: 0, idealHeight: 350, maxHeight: .infinity, alignment: .center)
                                 .border(Color.borderColor)
-                                .padding(10)
+                                .padding(.horizontal, 8)
                         }
-                        VStack (spacing: -16) {
-                            VStack (spacing: 16){
+                        VStack (spacing: 8) {
+                            VStack (spacing: 8){
                                 //title
                                 Text(globalData.editContent.title)
                                     .font(.title2)
                                     .lineLimit(1)
-                                    .padding(.bottom, -8)
                                 
                                 VStack {
-                                    Text("────────────────────")
-                                        .bold()
+                                    Rectangle()
+                                        .frame(height: 1, alignment: .center)
                                     
                                     ZStack {
                                         if self.checkChange == false {
                                             Text("이곳을 클릭해서 사진을 추가해주세요.")
                                                 .font(.subheadline)
                                                 .foregroundColor(Color.gray)
-                                                .frame(minWidth: 200, idealWidth: 200, maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity, alignment: .center)
+                                                .frame(minWidth: 320, idealWidth: 320, maxWidth: .infinity, minHeight: 180, idealHeight: 180, maxHeight: .infinity, alignment: .center)
                                                 .border(Color.gray)
-                                                .padding(.horizontal, 64)
                                         }
 
                                         Image(uiImage: self.image!)
                                             .resizable()
-                                            .frame(minWidth: 200, idealWidth: 200, maxWidth: .infinity, minHeight: 200, idealHeight: 200, maxHeight: .infinity, alignment: .center)
-                                            .padding(.horizontal, 48)
+                                            .frame(minWidth: 320, idealWidth: 320, maxWidth: .infinity, minHeight: 180, idealHeight: 180, maxHeight: .infinity, alignment: .center)
                                             .onTapGesture {
                                                 self.reset()
-                                                presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 1)
+                                                presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 16.0 / 9.0)
                                                 isShowing = true
                                             }
                                             .onChange(of: self.image, perform: { _ in
                                                 self.checkChange = true
                                                 self.isCrop.toggle()
+                                                globalData.editContent.thumbnailData = self.image?.jpegData(compressionQuality: 1)
                                             })
                                             .fullScreenCover(isPresented: $isShowing) {
                                                 ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image, isShowing: $isShowing)
@@ -89,6 +87,7 @@ struct EditThumbnailView: View {
                                                 }
                                             }
                                     }
+                                    .padding(.vertical, 8)
                                     
                                     HStack {
                                         Spacer()
@@ -98,13 +97,12 @@ struct EditThumbnailView: View {
                                             .bold()
                                             .lineLimit(1)
                                     }
-                                    .padding(.horizontal, 16)
-                                    .padding(.bottom, -24)
                                     
-                                    Text("────────────────────")
-                                        .bold()
+                                    Rectangle()
+                                        .frame(height: 1, alignment: .center)
                                 }
                             }
+                            
                             // 인트로 작성 텍스트에디터
                             ZStack {
                                 // placeholder

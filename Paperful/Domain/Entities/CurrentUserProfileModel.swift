@@ -6,5 +6,5 @@ struct CurrentUserProfileModel: Codable {
     var image: String? = nil
     var intro: String = ""
     var nickname: String = ""
-    var numberOfSubscribers: Int = 0
+    var num_subscribers: Int = 0
 }

@@ -47,6 +47,8 @@ struct HomeView: View {
                         
                         NavigationLink(
                             destination: SelectFormView()
+                                .navigationBarTitle("", displayMode: .inline)
+                                .navigationBarHidden(true)
                                 .onAppear { self.tabBar.isHidden = true }
                         ) {
                             Image(systemName: "pencil")

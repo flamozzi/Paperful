@@ -11,7 +11,6 @@ struct UserProfileSelectView: View {
     @ObservedObject var userProfileSelectViewModel: UserProfileSelectViewModel = .init()
     
     var btnBack : some View { Button(action: {
-//        self.presentationMode.wrappedValue.dismiss()
         globalData.resetUserToken()
         
     }) {
@@ -44,14 +43,10 @@ struct UserProfileSelectView: View {
                                     .onTapGesture {
                                         // 선택한 유저 프로필로 globalData의 current 유저 정보로 매핑
                                         globalData.currentUserProfile.id = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileID
-                                        
                                         globalData.currentUserProfile.image = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileImage
-                                        
                                         globalData.currentUserProfile.intro = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileIntro
-                                        
                                         globalData.currentUserProfile.nickname = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNickname
-                                        
-                                        globalData.currentUserProfile.numberOfSubscribers = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNumberOfSubscribers
+                                        globalData.currentUserProfile.num_subscribers = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNumberOfSubscribers
                                         
                                         globalData.isMember = true
                                     }
