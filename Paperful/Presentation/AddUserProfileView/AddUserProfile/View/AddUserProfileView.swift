@@ -172,22 +172,18 @@ struct AddUserProfileView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 if self.enter_nickname != "" && self.enter_nickname.trimmingCharacters(in: .whitespaces) != "" {
-                    NavigationLink(
-                        destination: EditContentView_General()
-                    ) {
-                        Text("생성")
-                            .foregroundColor(Color.black)
-                            .onTapGesture {
-                                self.addUserProfileViewModel.postNewUserProfile(nickname: self.enter_nickname, image: self.image?.jpegData(compressionQuality: 1), intro: self.enter_intro, globalData: globalData)
-                                
-                                globalData.currentUserProfile.image = self.image?.toJpegString(compressionQuality: 1)
-                                globalData.currentUserProfile.intro = self.enter_intro
-                                globalData.currentUserProfile.nickname = self.enter_nickname
-                                globalData.currentUserProfile.num_subscribers = 0
-                                
-                                globalData.isMember = true
-                            }
-                    }
+                    Text("생성")
+                        .foregroundColor(Color.black)
+                        .onTapGesture {
+                            self.addUserProfileViewModel.postNewUserProfile(nickname: self.enter_nickname, image: self.image?.jpegData(compressionQuality: 1), intro: self.enter_intro, globalData: globalData)
+                            
+                            globalData.currentUserProfile.image = self.image?.toJpegString(compressionQuality: 1)
+                            globalData.currentUserProfile.intro = self.enter_intro
+                            globalData.currentUserProfile.nickname = self.enter_nickname
+                            globalData.currentUserProfile.num_subscribers = 0
+                            
+                            globalData.isMember = true
+                        }
                 }
             }
         }

@@ -70,8 +70,8 @@ struct LoginView: View {
                         
                         // 테스트용 아이디 자동입력 장치 (다 쓰고 지워야 함)
                         Button( action: {
-                            self.email = "pjs99047@gmail.com"
-                            self.password = "Ann_paperful"
+                            self.email = "test1@test.com"
+                            self.password = "test"
                         }) {
                            TestEnter()
                         }

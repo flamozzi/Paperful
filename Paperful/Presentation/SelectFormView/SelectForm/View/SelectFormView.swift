@@ -7,6 +7,8 @@ struct SelectFormView: View {
     
     @ObservedObject var selectFormViewModel: SelectFormViewModel = .init()
     
+    @Binding var firstNaviLinkActive: Bool
+    
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -14,7 +16,8 @@ struct SelectFormView: View {
     }
     }
     
-    init() {
+    init(firstNaviLinkActive: Binding<Bool>) {
+        self._firstNaviLinkActive = firstNaviLinkActive
         self.selectFormViewModel.setFormList()
     }
     
@@ -47,21 +50,21 @@ struct SelectFormView: View {
                             ForEach(0..<self.selectFormViewModel.formViewList.count, id: \.self) { iterator in
                                 if self.selectFormViewModel.formViewList[iterator].formViewModel.id == 1 {
                                     NavigationLink(
-                                        destination: EditTitleView_General()
+                                        destination: EditTitleView_General(firstNaviLinkActive: $firstNaviLinkActive)
                                     ) {
                                         self.selectFormViewModel.formViewList[iterator]
                                     }
                                 }
                                 else if self.selectFormViewModel.formViewList[iterator].formViewModel.id == 2 {
                                     NavigationLink(
-                                        destination: EditTitleView_General() // 바꿔야함
+                                        destination: EditTitleView_General(firstNaviLinkActive: $firstNaviLinkActive) // 바꿔야함
                                     ) {
                                         self.selectFormViewModel.formViewList[iterator]
                                     }
                                 }
                                 else if self.selectFormViewModel.formViewList[iterator].formViewModel.id == 3 {
                                     NavigationLink(
-                                        destination: EditTitleView_General() // 바꿔야함
+                                        destination: EditTitleView_General(firstNaviLinkActive: $firstNaviLinkActive) // 바꿔야함
                                     ) {
                                         self.selectFormViewModel.formViewList[iterator]
                                     }

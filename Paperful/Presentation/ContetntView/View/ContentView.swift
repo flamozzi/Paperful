@@ -10,36 +10,76 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var globalData: GlobalData
     
+    @State private var tabSelection = 1
+    @State private var tappedTwice: Bool = false
+    
     var body: some View {
         
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
+        var handler: Binding<Int> { Binding(
+                get: { self.tabSelection },
+                set: {
+                    if $0 == self.tabSelection {
+                        // Lands here if user tapped more than once
+                        tappedTwice = true
+                    }
+                    self.tabSelection = $0
                 }
-            HomeView() // 임시
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                }
-            HomeView()
-                .tabItem {
-                    Image(systemName: "book")
-                }
-            HomeView()
-                .tabItem {
-                    Image(systemName: "books.vertical")
-                }
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person")
-                }
-        }
-        .onAppear() {
-            UITabBar.appearance().barTintColor = .backgroundColor
-            globalData.goToContentView = false
-        }
-        .accentColor(.black)
+        )}
+        
+        return ScrollViewReader { proxy in
+            TabView(selection: handler) {
+                HomeView()
+                    .onChange(of: tappedTwice, perform: { tapped in
+                        if tapped {
+                            withAnimation {
+                                proxy.scrollTo(1)
+                            }
+                            tappedTwice = false
+                        }
+                    })
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                    .tag(1)
+                
+//                HomeView() // 임시
+//                    .tabItem {
+//                        Image(systemName: "magnifyingglass")
+//                    }
+//                    .tag(2)
+//
+//                HomeView()
+//                    .tabItem {
+//                        Image(systemName: "book")
+//                    }
+//                    .tag(3)
+//
+//                HomeView()
+//                    .tabItem {
+//                        Image(systemName: "books.vertical")
+//                    }
+//                    .tag(4)
+                
+                ProfileView()
+                    .onChange(of: tappedTwice, perform: { tapped in
+                        if tapped {
+                            withAnimation {
+                                proxy.scrollTo(1)
+                            }
+                            tappedTwice = false
+                        }
+                    })
+                    .tabItem {
+                        Image(systemName: "person")
+                    }
+                    .tag(5)
+            }
+            .onAppear() {
+                UITabBar.appearance().barTintColor = .backgroundColor
+            }
+            .accentColor(.black)
         .onAppear(perform: UIApplication.shared.hideKeyboard)
+        }
     }
 }
 

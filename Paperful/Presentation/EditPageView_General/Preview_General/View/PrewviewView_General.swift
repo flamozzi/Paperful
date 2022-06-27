@@ -6,6 +6,8 @@ struct PrewviewView_General: View {
     
     @StateObject var previewViewModel: PreviewViewModel_General = .init()
     
+    @Binding var firstNaviLinkActive: Bool
+    
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -13,9 +15,9 @@ struct PrewviewView_General: View {
     }
     }
     
-    init() {
-        UITextView.appearance().backgroundColor = .clear
-    }
+//    init() {
+//        UITextView.appearance().backgroundColor = .clear
+//    }
     
     var body: some View {
         ZStack {
@@ -79,7 +81,7 @@ struct PrewviewView_General: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(
-                    destination: EditThumbnailView_General()
+                    destination: EditThumbnailView_General(firstNaviLinkActive: $firstNaviLinkActive)
                 ) {
                     Text("다음")
                 }

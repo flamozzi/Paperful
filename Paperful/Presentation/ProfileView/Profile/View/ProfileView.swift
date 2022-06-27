@@ -41,7 +41,7 @@ struct ProfileView: View {
                                 // 게시물 및 구독자 수
                                 HStack {
                                     VStack {
-                                        Text("\(self.profileViewModel.postList.total)")
+                                        Text("\(self.profileViewModel.postList.count)")
                                             .font(.subheadline)
                                         Text("게시물")
                                             .font(.subheadline)
@@ -63,7 +63,7 @@ struct ProfileView: View {
                                     .font(.subheadline)
                                     .bold()
                                 
-                                if self.profileViewModel.postList.total == 0 {
+                                if self.profileViewModel.postList.count == 0 {
                                     Text("아직 작성한 글이 없습니다.")
                                         .font(.subheadline)
                                         .foregroundColor(Color.gray)
@@ -75,7 +75,7 @@ struct ProfileView: View {
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.backgroundColor)
                         
-                        if self.profileViewModel.postList.total != 0 {
+                        if self.profileViewModel.postList.count != 0 {
                             ForEach(0..<self.profileViewModel.thumbnailViewList.count, id: \.self) { iterator in
                                 //MARK: - general form
                                 if self.profileViewModel.thumbnailViewList[iterator].thumbnailViewModel.object_type == "general" {
@@ -151,6 +151,7 @@ struct ProfileView: View {
         .background(TabBarAccessor { tabbar in
             self.tabBar = tabbar
         })
+        .id(2)
     }
 }
 

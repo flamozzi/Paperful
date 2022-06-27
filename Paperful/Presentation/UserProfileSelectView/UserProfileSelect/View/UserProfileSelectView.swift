@@ -35,33 +35,44 @@ struct UserProfileSelectView: View {
                         .bold()
                         .padding(.horizontal, 16)
                     
-                    ScrollView(.horizontal) {
-                        HStack{
-                            ForEach(0..<self.userProfileSelectViewModel.userProfileViewList.count, id: \.self) { iterator in
-                                // ContentView로 이동
-                                self.userProfileSelectViewModel.userProfileViewList[iterator]
-                                    .onTapGesture {
-                                        // 선택한 유저 프로필로 globalData의 current 유저 정보로 매핑
-                                        globalData.currentUserProfile.id = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileID
-                                        globalData.currentUserProfile.image = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileImage
-                                        globalData.currentUserProfile.intro = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileIntro
-                                        globalData.currentUserProfile.nickname = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNickname
-                                        globalData.currentUserProfile.num_subscribers = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNumberOfSubscribers
-                                        
-                                        globalData.isMember = true
-                                    }
-                                    .onAppear() {
-                                        if iterator % 10 == 9 {
-                                            self.userProfileSelectViewModel.loadNextProfileList(globalData: globalData)
+                    if self.userProfileSelectViewModel.userProfileViewList.count == 0 {
+                        // AddUserProfileView로 이동
+                        NavigationLink(
+                            destination: AddUserProfileView()
+                        ) {
+                            AddUserCircleButton()
+                        }
+                    }
+                    
+                    else {
+                        ScrollView(.horizontal) {
+                            HStack{
+                                ForEach(0..<self.userProfileSelectViewModel.userProfileViewList.count, id: \.self) { iterator in
+                                    // ContentView로 이동
+                                    self.userProfileSelectViewModel.userProfileViewList[iterator]
+                                        .onTapGesture {
+                                            // 선택한 유저 프로필로 globalData의 current 유저 정보로 매핑
+                                            globalData.currentUserProfile.id = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileID
+                                            globalData.currentUserProfile.image = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileImage
+                                            globalData.currentUserProfile.intro = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileIntro
+                                            globalData.currentUserProfile.nickname = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNickname
+                                            globalData.currentUserProfile.num_subscribers = self.userProfileSelectViewModel.userProfileViewList[iterator].userProfileViewModel.userProfileNumberOfSubscribers
+                                            
+                                            globalData.isMember = true
                                         }
-                                    }
-                            }
-                            
-                            // AddUserProfileView로 이동
-                            NavigationLink(
-                                destination: AddUserProfileView()
-                            ) {
-                                AddUserCircleButton()
+                                        .onAppear() {
+                                            if iterator % 10 == 9 {
+                                                self.userProfileSelectViewModel.loadNextProfileList(globalData: globalData)
+                                            }
+                                        }
+                                }
+                                
+                                // AddUserProfileView로 이동
+                                NavigationLink(
+                                    destination: AddUserProfileView()
+                                ) {
+                                    AddUserCircleButton()
+                                }
                             }
                         }
                     }
