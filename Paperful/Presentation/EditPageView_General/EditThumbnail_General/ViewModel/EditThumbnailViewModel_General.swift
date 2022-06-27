@@ -4,15 +4,19 @@ import Alamofire
 
 
 class EditThumbnailViewModel_General: ObservableObject {
+    
     func requestAddPost(object_type: String, status: String, userProfileID: Int, title: String, content: String, image: Data?, intro: String?, globalData: GlobalData) {
-        self.addPost(object_type: object_type, status: status, userProfileID: userProfileID, title: title, content: content, image: image, intro: intro, globalData: globalData) { (isSuccess, id) in
+        self.addPost(object_type: object_type, status: status, userProfileID: userProfileID, title: title, content: content, image: image, intro: intro, globalData: globalData) { (isSuccess, PostResponse) in
             if isSuccess {
-                // 왜 success가 아닌데 잘 되는거지????
+                globalData.postSuccessTogle = !globalData.postSuccessTogle
+            }
+            else {
+                print("add Post failed!")
             }
         }
     }
     
-    private func addPost(object_type: String, status: String, userProfileID: Int, title: String, content: String, image: Data?, intro: String?, globalData: GlobalData, completion: @escaping (Bool, Int) -> Void) {
+    private func addPost(object_type: String, status: String, userProfileID: Int, title: String, content: String, image: Data?, intro: String?, globalData: GlobalData, completion: @escaping (Bool, PostResponse) -> Void) {
         
         let url = "https://api.paperful.co.kr/userprofiles/\(userProfileID)/posts"
         
@@ -31,12 +35,11 @@ class EditThumbnailViewModel_General: ObservableObject {
                 multipartFormData.append(thumbnail, withName: "thumbnail", fileName: "thumbnailFileName.jpeg", mimeType: "image/jpeg")
             }
         }, to: url, headers: headers)
-        .responseDecodable(of: PostModel.self) { response in
-            debugPrint(response)
+        .responseDecodable(of: PostResponse.self) { response in
             switch response.result {
             case .success(_):
                 guard let result = response.value else { return }
-                completion(true, result.id)
+                completion(true, result)
             case let .failure(error):
                 print(error)
             }

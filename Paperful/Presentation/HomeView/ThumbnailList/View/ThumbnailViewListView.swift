@@ -10,7 +10,6 @@ struct ThumbnailViewListView: View {
     @State private var tabBar: UITabBar! = nil
     
     init() {
-        self.thumbnailViewListViewModel.reload()
         UITableView.appearance().showsVerticalScrollIndicator = false
     }
     
@@ -54,6 +53,7 @@ struct ThumbnailViewListView: View {
         }
         .onAppear {
             self.thumbnailViewListViewModel.settingHomeModels()
+            self.thumbnailViewListViewModel.reload()
         }
         .background(TabBarAccessor { tabbar in
             self.tabBar = tabbar

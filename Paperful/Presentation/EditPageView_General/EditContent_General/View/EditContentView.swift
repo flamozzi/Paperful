@@ -8,6 +8,8 @@ struct EditContentView_General: View {
     @State var enter_content: String = ""
     @State var placeholder_content: String = "당신의 소중한 생각을 기록해주세요."
     
+    @Binding var firstNaviLinkActive: Bool
+    
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
         }) {
@@ -15,9 +17,9 @@ struct EditContentView_General: View {
         }
     }
     
-    init() {
-        UITextView.appearance().backgroundColor = .clear
-    }
+//    init() {
+//        UITextView.appearance().backgroundColor = .clear
+//    }
     
     var body: some View {  // 화면 하단 부에 글자 byte나 맞춤법 검사? 미리보기? 등 기타 기능들 추가
         ZStack {
@@ -63,7 +65,7 @@ struct EditContentView_General: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if globalData.editContent.title != "" {
                     NavigationLink(
-                        destination: PrewviewView_General()
+                        destination: PrewviewView_General(firstNaviLinkActive: $firstNaviLinkActive)
                     ) {
                         Text("다음")
                     }

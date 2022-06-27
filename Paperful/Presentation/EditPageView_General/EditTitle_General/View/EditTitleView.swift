@@ -9,6 +9,8 @@ struct EditTitleView_General: View {
     @State private var placeholder_title: String = "제목을 입력해주세요."
 
     @State private var showingAlert = false
+    
+    @Binding var firstNaviLinkActive: Bool
 
     var btnBack : some View { Button(action: {
         showingAlert = true // 경고창 띄움
@@ -17,9 +19,10 @@ struct EditTitleView_General: View {
     }
     }
 
-    init() {
-        UITextView.appearance().backgroundColor = .clear
-    }
+//    init(firstNaviLinkActive: Binding<Bool>) {
+//        self._firstNaviLinkActive = firstNaviLinkActive
+//        UITextView.appearance().backgroundColor = .clear
+//    }
 
     var body: some View {
         ZStack {
@@ -67,7 +70,7 @@ struct EditTitleView_General: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if globalData.editContent.title != "" && globalData.editContent.title.trimmingCharacters(in: .whitespaces) != "" {
                     NavigationLink(
-                        destination: EditContentView_General()
+                        destination: EditContentView_General(firstNaviLinkActive: $firstNaviLinkActive)
                     ) {
                         Text("다음")
                     }

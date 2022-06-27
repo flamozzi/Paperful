@@ -7,6 +7,8 @@ struct HomeView: View {
     @EnvironmentObject var globalData: GlobalData
     @State private var tabBar: UITabBar! = nil
     
+    @State var firstNaviLinkActive = false
+    
     var body: some View {
         
         NavigationView {
@@ -46,10 +48,11 @@ struct HomeView: View {
                         .onAppear { self.tabBar.isHidden = false }
                         
                         NavigationLink(
-                            destination: SelectFormView()
+                            destination: SelectFormView(firstNaviLinkActive: $firstNaviLinkActive)
                                 .navigationBarTitle("", displayMode: .inline)
                                 .navigationBarHidden(true)
                                 .onAppear { self.tabBar.isHidden = true }
+                            , isActive: $firstNaviLinkActive
                         ) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 23))
@@ -63,6 +66,7 @@ struct HomeView: View {
         .background(TabBarAccessor { tabbar in
             self.tabBar = tabbar
         })
+        .id(1)
     }
 }
 

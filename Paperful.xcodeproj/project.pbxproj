@@ -53,6 +53,7 @@
 		EA7EBB48282923D4007B4981 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = EA7EBB47282923D4007B4981 /* SwiftUIPullToRefresh */; };
 		EA7EBB4B28292980007B4981 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EA7EBB4A28292980007B4981 /* Alamofire */; };
 		EA7EBB4E28292CB2007B4981 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7EBB4D28292CB2007B4981 /* request.swift */; };
+		EAB3D37E2869E34B00AB359D /* PhoneNumberCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3D37D2869E34B00AB359D /* PhoneNumberCheckView.swift */; };
 		EAB3EFBC28113CFF007BF1B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3EFBB28113CFF007BF1B9 /* HomeView.swift */; };
 		EAB3EFC028119E52007BF1B9 /* ThumbnailViewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB3EFBF28119E52007BF1B9 /* ThumbnailViewListView.swift */; };
 		EAD032E7281A633300705F42 /* EditContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD032E6281A633300705F42 /* EditContentView.swift */; };
@@ -113,6 +114,7 @@
 		EA7A58B3284255E800E6648A /* DetailViewModel_General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel_General.swift; sourceTree = "<group>"; };
 		EA7A58B5284260BF00E6648A /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		EA7EBB4D28292CB2007B4981 /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
+		EAB3D37D2869E34B00AB359D /* PhoneNumberCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCheckView.swift; sourceTree = "<group>"; };
 		EAB3EFBB28113CFF007BF1B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EAB3EFBF28119E52007BF1B9 /* ThumbnailViewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailViewListView.swift; sourceTree = "<group>"; };
 		EAD032E6281A633300705F42 /* EditContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContentView.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				EA72B027283732EC00F5892B /* SignUp */,
+				EAB3D37A2869E2F400AB359D /* PhoneNumberCheck */,
 			);
 			path = SignUpView;
 			sourceTree = "<group>";
@@ -707,6 +710,30 @@
 				EA7EBB4D28292CB2007B4981 /* request.swift */,
 			);
 			path = ServerCommunication;
+			sourceTree = "<group>";
+		};
+		EAB3D37A2869E2F400AB359D /* PhoneNumberCheck */ = {
+			isa = PBXGroup;
+			children = (
+				EAB3D37B2869E32900AB359D /* View */,
+				EAB3D37C2869E32E00AB359D /* ViewModel */,
+			);
+			path = PhoneNumberCheck;
+			sourceTree = "<group>";
+		};
+		EAB3D37B2869E32900AB359D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAB3D37D2869E34B00AB359D /* PhoneNumberCheckView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAB3D37C2869E32E00AB359D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EAB3EFBD28119E1A007BF1B9 /* ThumbnailList */ = {
@@ -1011,6 +1038,7 @@
 				EAB3EFC028119E52007BF1B9 /* ThumbnailViewListView.swift in Sources */,
 				EA72B00728329BD300F5892B /* PrewviewView_General.swift in Sources */,
 				EA7A58B6284260BF00E6648A /* PostModel.swift in Sources */,
+				EAB3D37E2869E34B00AB359D /* PhoneNumberCheckView.swift in Sources */,
 				EA36C53F28081D09002369EE /* ThumbnailViewModel.swift in Sources */,
 				EA04D87C283B91D600B7AED2 /* UserProfileImageView.swift in Sources */,
 				EA72B02D28377B9800F5892B /* SignUpViewModel.swift in Sources */,

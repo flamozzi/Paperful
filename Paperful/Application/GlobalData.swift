@@ -3,8 +3,6 @@ import Foundation
 import Combine
 
 class GlobalData: ObservableObject {
-    // 임시 스테이터스 코드 (삭제 될 지도 구조 변경하면)
-    @Published var statusCode: Int = 0
     
     //MARK: - 유저 토큰
     @Published var token: String = ""
@@ -47,5 +45,5 @@ class GlobalData: ObservableObject {
         self.editContent.writerNickname = ""
     }
     
-    @Published var goToContentView: Bool = false
+    @Published var postSuccessTogle: Bool = false
 }

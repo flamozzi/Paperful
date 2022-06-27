@@ -13,7 +13,7 @@ struct SignUpView: View {
     // MARK: - 다음 스탭 진입 여부
     @State var allConditionOK: Bool = false
 
-    @State var usernameOK: Bool = false // 실명인증 정상 (실명 인증 만들기 전까진 그냥 패스)
+    @State var usernameOK: Bool = true // 실명인증 정상 (실명 인증 만들기 전까진 그냥 true로 패스)
     @State var emailOK: Bool = false // Email 중복 확인
     @State var passwordOK: Bool = false // password 동일 확인
     @State var enterOk: Bool = false // 모든 입력 정상 확인
@@ -25,6 +25,7 @@ struct SignUpView: View {
     @State var enterPasswordCheckerOK: Bool = false
 
     // MARK: - 경고 메시지 랜더 여부
+    @State var emailValidationAlert: Bool = false
     @State var passwordAlert: Bool = false
 
     // MARK: - VM
@@ -125,24 +126,46 @@ struct SignUpView: View {
                         checkCondition()
                         self.passwordAlert = false
                     })
-
-                if self.passwordAlert == true {
-                    HStack {
-                        Text("비밀 번호가 일치하지 않습니다.")
-                            .font(.subheadline)
-                            .foregroundColor(Color.red)
-                            .padding(.horizontal, 16)
-                        Spacer()
+                
+                if self.emailValidationAlert == true {
+                    if self.SignUpViewModel.form == false {
+                        HStack {
+                            Text("이메일 형식을 확인해주세요.")
+                                .font(.subheadline)
+                                .foregroundColor(Color.red)
+                                .padding(.horizontal, 16)
+                            Spacer()
+                        }
+                    }
+                    else if self.SignUpViewModel.unique == false {
+                        HStack {
+                            Text("이미 존재하는 이메일 입니다.")
+                                .font(.subheadline)
+                                .foregroundColor(Color.red)
+                                .padding(.horizontal, 16)
+                            Spacer()
+                        }
+                    }
+                }
+                else {
+                    if self.passwordAlert == true {
+                        HStack {
+                            Text("비밀 번호가 일치하지 않습니다.")
+                                .font(.subheadline)
+                                .foregroundColor(Color.red)
+                                .padding(.horizontal, 16)
+                            Spacer()
+                        }
                     }
                 }
 
                 // MARK: - 가입 버튼 활성화 및 처리
 
                 if self.enterOk {
-                    // 모든 조건이 만족하여 가입 진행 가능
+                    // 모든 조건이 만족하면 전화번호 인증 화면으로 이동
                     if self.allConditionOK {
                         NavigationLink(
-                            destination: HomeView()
+                            destination: PhoneNumberCheckView()
                         ) {
                             Button(action: {}) {
                                 SignUpButton()
@@ -153,10 +176,20 @@ struct SignUpView: View {
                     // 입력은 모두 되었지만, 이메일이 이미 존재하는지, 비밀번호는 일치하는지 체크
                     else {
                         Button(action: {
-                            self.SignUpViewModel.checkDuplicateEamil(email: self.email, password: self.password, passwordChecker: self.passwordChecker, globalData: globalData)
+                            self.SignUpViewModel.requestEmailValidationChecking(email: self.email, globalData: globalData)
+                            checkCondition()
                             
-                            print(globalData.statusCode)
+                            // 이메일 중복 체크
+                            if self.SignUpViewModel.is_valid == true {
+                                self.emailOK = true
+                                self.emailValidationAlert = false
+                            }
+                            else {
+                                self.emailOK = false
+                                self.emailValidationAlert = true
+                            }
                             
+                            // 비밀번호 동일 체크
                             if self.password != self.passwordChecker {
                                 self.passwordOK = false
                                 self.passwordAlert = true
@@ -171,7 +204,7 @@ struct SignUpView: View {
                     }
                 }
                 Spacer()
-            }
+            } 
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -198,6 +231,11 @@ struct SignUpView: View {
         else {
             self.allConditionOK = false
         }
+        
+        print("emailOK: \(self.emailOK)")
+        print("passwordOK: \(self.passwordOK)")
+        print("All Condition: \(self.allConditionOK)")
+        print("")
     }
 }
 

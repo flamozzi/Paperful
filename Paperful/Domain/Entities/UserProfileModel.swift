@@ -3,10 +3,12 @@ import Foundation
 struct UserProfileListModel: Codable {
     var results: [UserProfileModel]
     var next: String?
+    var count: Int
     
     init() {
         self.results = []
         self.next = nil
+        self.count = 0
     }
 }
 

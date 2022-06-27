@@ -7,7 +7,7 @@ struct PostListModel: Codable {
     var size: Int
     var start: Int
     var limit: Int
-    var total: Int
+    var count: Int
     
     init() {
         self.results = []
@@ -16,7 +16,7 @@ struct PostListModel: Codable {
         self.size = 0
         self.start = 0
         self.limit = 0
-        self.total = 0
+        self.count = 0
     }
 }
 
@@ -37,4 +37,8 @@ struct PostModel: Codable {
     var attentions: Int = 0
     var diary_day: String?
     var weather: String?
+}
+
+struct PostResponse: Codable {
+    var id: Int = 0
 }

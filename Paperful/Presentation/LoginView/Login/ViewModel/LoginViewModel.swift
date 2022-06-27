@@ -18,7 +18,7 @@ class LoginViewModel: ObservableObject {
     // getLoginToken
     private func getLoginAPI(email: String, password: String, completion: @escaping (Bool, String?) -> Void) {
         
-        let url = "https://api.paperful.co.kr/auth"
+        let url = "https://api.paperful.co.kr/auth/user"
         
         let login = Login(email: email, password: password)
         
